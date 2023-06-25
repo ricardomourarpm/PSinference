@@ -1,4 +1,4 @@
-#' The positive-rule Stein estimator
+#' Canodist
 #'
 #' This function calculates the positive-rule Stein estimator. This estimator is
 #'
@@ -11,12 +11,12 @@
 #'  ref
 #'
 #' @examples
-#' Canodist(part = 2, nsample = 100, pvariates = 4, iterations = 2)
+#' canodist(part = 2, nsample = 100, pvariates = 4, iterations = 2)
 
 #'
 #' @export
 
-Canodist <- function(part, nsample, pvariates, iterations) {
+canodist <- function(part, nsample, pvariates, iterations) {
   T <- rep(NA, iterations)
   W1 <- stats::rWishart(iterations, nsample - 1, diag(pvariates))
   for (i in 1:iterations) {
