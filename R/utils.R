@@ -1,14 +1,14 @@
-partition <- function(array, nrows, ncols) {
+partition <- function(mat, nrows, ncols) {
   #split matrix into submatrices
-  r <- dim(array)[1]
-  c <- dim(array)[2]
-  if(r>nrows & c>ncols){
+  r <- dim(mat)[1]
+  c <- dim(mat)[2]
+  if(r<nrows & c<ncols){
     stop("ncols or nrows is larger than array .")
   }
-  A <- array[1:nrows, 1:ncols]
-  B <- array[1:nrows, (ncols + 1):c]
-  C <- array[(nrows + 1):r, 1:ncols]
-  D <- array[(nrows + 1):r, (ncols + 1):c]
+  A <- mat[1:nrows, 1:ncols]
+  B <- mat[1:nrows, (ncols + 1):c]
+  C <- mat[(nrows + 1):r, 1:ncols]
+  D <- mat[(nrows + 1):r, (ncols + 1):c]
   return(list(A, B, C, D))
 }
 
