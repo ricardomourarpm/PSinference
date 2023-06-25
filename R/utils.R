@@ -1,8 +1,8 @@
 partition <- function(mat, nrows, ncols) {
-  #split matrix into submatrices
+  # split matrix into submatrices
   r <- dim(mat)[1]
   c <- dim(mat)[2]
-  if(r<nrows & c<ncols){
+  if (r < nrows & c < ncols) {
     stop("ncols or nrows is larger than array .")
   }
   A <- mat[1:nrows, 1:ncols]
@@ -14,10 +14,6 @@ partition <- function(mat, nrows, ncols) {
 
 
 chiprod <- function(dimension, degrees) {
-  product <- 1
-  for (i in 1:dimension) {
-    product <- product * rchisq(1, degrees - i + 1)
-  }
+  product <- prod(rchisq(dimension, (degrees - dimension + 1):degrees))
   return(product)
 }
-
