@@ -14,6 +14,6 @@ partition <- function(mat, nrows, ncols) {
 
 
 chiprod <- function(dimension, degrees) {
-  product <- prod(rchisq(dimension, (degrees - dimension + 1):degrees))
+  product <- prod(stats::rchisq(dimension, (degrees - dimension + 1):degrees))
   return(product)
 }
