@@ -1,12 +1,12 @@
 #' Canodist
 #'
-#' This function calculates the positive-rule Stein estimator. This estimator is
+#' This function calculates
 #'
-#' part, nsample, pvariates, iterations
 #' @param part .
 #' @param nsample .
 #' @param pvariates .
 #' @param iterations .
+#'
 #' @references
 #'  ref
 #'
