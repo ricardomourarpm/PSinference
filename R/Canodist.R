@@ -1,4 +1,4 @@
-#' Canodist
+#' Canonical distribution
 #'
 #' This function calculates
 #'
