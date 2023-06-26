@@ -16,11 +16,7 @@
 
 
 GVdist <- function(nsample, pvariates, iterations) {
-  T <- rep(NA, iterations)
-  for (i in 1:iterations) {
-    q <- chiprod(pvariates, nsample - 1)
-    p <- chiprod(pvariates, nsample - 1)
-    T[i] <- p * q
-  }
-  return(T)
+  q <- chiprod(pvariates, nsample - 1,iterations)
+  p <- chiprod(pvariates, nsample - 1,iterations)
+  return(p * q)
 }
