@@ -10,11 +10,11 @@
 #'  ref
 #'
 #' @examples
-#' sphdist(nsample = 100, pvariates = 4, iterations = 4)
+#' Sphdist(nsample = 100, pvariates = 4, iterations = 2)
 #'
 #' @export
 
-sphdist <- function(nsample=100, pvariates=4, iterations=2) {
+Sphdist <- function(nsample, pvariates, iterations) {
   T <- rep(NA, iterations)
   W1 <- rWishart(iterations, nsample - 1, diag(pvariates) / (nsample - 1))
   W2 <- rWishart(iterations, nsample - 1, diag(pvariates))
