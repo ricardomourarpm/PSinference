@@ -19,7 +19,7 @@ Sphdist <- function(nsample, pvariates, iterations) {
   W1 <- rWishart(iterations, nsample - 1, diag(pvariates) / (nsample - 1))
   W2 <- rWishart(iterations, nsample - 1, diag(pvariates))
   for (i in 1:iterations) {
-    T[i] <- det(W1[,,i] %*% W2[,,i])^(1/pvariates) / sum(W1[,,i] %*% W2[,,i])
-  }
+    inner_prod <- crossprod(W1[,,i], W2[,,i])
+    T[i] <- det(inner_prod)^(1/pvariates) / sum(inner_prod)  }
   return(T)
 }
