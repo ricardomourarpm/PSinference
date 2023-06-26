@@ -14,7 +14,7 @@
 #'
 #' @export
 
-sphdist <- function(nsample, pvariates, iterations) {
+Sphdist <- function(nsample, pvariates, iterations) {
   T <- rep(NA, iterations)
   W1 <- rWishart(iterations, nsample - 1, diag(pvariates) / (nsample - 1))
   W2 <- rWishart(iterations, nsample - 1, diag(pvariates))
