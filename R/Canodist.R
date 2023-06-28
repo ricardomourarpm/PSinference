@@ -9,7 +9,7 @@
 #'
 #' @references
 #'  ref
-#'
+#' @importFrom stats rWishart
 #' @examples
 #' canodist(part = 2, nsample = 100, pvariates = 4, iterations = 2)
 #'

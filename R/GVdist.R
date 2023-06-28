@@ -8,7 +8,7 @@
 #'
 #' @references
 #'  ref
-#'
+#' @importFrom stats rchisq
 #' @examples
 #' GVdist(nsample = 10, pvariates = 4, iterations = 5)
 #'
