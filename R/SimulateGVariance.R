@@ -3,7 +3,7 @@ library(matrixStats)
 library(ggplot2)
 
 set.seed(1234)
-sim <- 10
+sim <- 100000
 
 # Sample size and partition size
 n <- 100
