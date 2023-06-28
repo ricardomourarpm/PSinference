@@ -1,5 +1,4 @@
 library(MASS)
-library(matrixcalc)
 
 set.seed(1234)
 sim <- 100
@@ -57,8 +56,8 @@ T1_2 <- NULL
 
 for (i in 1:sim) {
   # Generate original data sample from normal with mu and Sigma
-  X1 <- mvrnorm(n, mu, Sigma1)
-  X2 <- mvrnorm(n, mu, Sigma2)
+  X1 <- MASS::mvrnorm(n, mu, Sigma1)
+  X2 <- MASS::mvrnorm(n, mu, Sigma2)
 
   mean1 <- colMeans(X1)
   mean2 <- colMeans(X2)
@@ -66,8 +65,8 @@ for (i in 1:sim) {
   S2 <- (t(X2) - mean2)%*%t(t(X2) - mean2)
 
   # Generate PLS synthetic single data
-  V1 <- mvrnorm(n, mean1, S1/(n-1))
-  V2 <- mvrnorm(n, mean2, S2/(n-1))
+  V1 <- MASS::mvrnorm(n, mean1, S1/(n-1))
+  V2 <- MASS::mvrnorm(n, mean2, S2/(n-1))
 
   # PLS estimates of mu and Sigma
   meanV1 <- colMeans(V1)
@@ -84,7 +83,7 @@ for (i in 1:sim) {
   S_star1_112 <- S_star1_11 - S_star1_12 %*% solve(S_star1_22)
   Delta_star1 <- S_star1_12 %*% solve(S_star1_22)
 
-  s4 <- partition(S_star2,p1,p1)
+  s4 <- partition(S_star2,p2,p2)
   S_star2_11 <- s4[[1]]
   S_star2_12 <- s4[[2]]
   S_star2_21 <- s4[[3]]
