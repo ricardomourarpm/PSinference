@@ -69,12 +69,6 @@ plot(density(T ^ (1 / p)),col=1)
 plot(density(T1_1 ^ (1 / p)),col=2)
 plot(density(T1_2 ^ (1 / p)),col=3)
 par(mfrow=c(1,1))
-polygon(density(T ^ (1 / p)), col='blue', border='black')
-
-par(mfrow=c(2,2))
-plot(density(T ),col=1)
-lines(density(T1_1),col=2)
-lines(density(T1_2) ,col=3)
 
 plot(density(T ),col=1)
 lines(density(T1_1),col=2)
