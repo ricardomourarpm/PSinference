@@ -34,7 +34,6 @@ for (i in 1:sim) {
   # Generate original data sample from normal with mu and Sigma
   X1 <- mvrnorm(n, mu, Sigma1)
   X2 <- mvrnorm(n, mu, Sigma2)
-  dim(X1)
   mean1 <- colMeans(X1)
   mean2 <- colMeans(X2)
   S1 <- (t(X1) - mean1)%*%t(t(X1) - mean1)
