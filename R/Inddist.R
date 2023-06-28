@@ -14,7 +14,11 @@
 #' Inddist(part = 2, nsample = 100, pvariates = 4, iterations = 2)
 #'
 #' @export
-
+Inddist(p1, n, p, sim)
+part=p1
+nsample=n
+pvariates=p
+iterations=sim
 Inddist <- function(part, nsample, pvariates, iterations) {
   T <- rep(NA, iterations)
   W1 <- stats::rWishart(iterations, nsample - 1, diag(pvariates))
@@ -23,7 +27,7 @@ Inddist <- function(part, nsample, pvariates, iterations) {
     A <- partition(W2[, , 1], part, part)
     W2_11 <- A[[1]]
     W2_22 <- A[[4]]
-    T[i] <- det(W2[, , 1]) / (det(W2_11)*det(W2_22))
+    T[i] <- det(W2[, , 1]) / (W2_11*det(W2_22))
   }
   return(T)
 }
