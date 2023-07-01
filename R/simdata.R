@@ -1,3 +1,32 @@
+#' Plug-in Sampling Dataset Generation
+#'
+#' This function calculates
+#'
+#' @param part .
+#' @param nsample .
+#' @param pvariates .
+#' @param iterations .
+#'
+#' @references
+#'  ref
+#' @importFrom stats rWishart
+#' @examples
+#' Inddist(part = 2, nsample = 100, pvariates = 4, iterations = 2)
+#'
+#' @export
+
+
+
+
+
+
+
+
+
+
+
+
+
 library(MASS)
 
 n <- 1000
