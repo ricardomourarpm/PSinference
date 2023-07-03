@@ -1,4 +1,4 @@
-#' Plug-in Sampling Dataset Generation
+#' Plug-in Sampling Single Synthetic Dataset Generation
 #'
 #' This function calculates
 #'
@@ -11,7 +11,6 @@
 #'  ref
 #' @importFrom stats rWishart
 #' @examples
-#' Inddist(part = 2, nsample = 100, pvariates = 4, iterations = 2)
 #'
 #' @export
 
@@ -19,35 +18,42 @@
 
 
 
-
-
-
-
-
-
-
-
 library(MASS)
 
-n <- 1000
-alpha <- 4
-mu <- c(1, 2, 3, 4, 5)
-Sigma <- matrix(c(1, 0.5, 0.5, 1), nrow = 2, ncol = 2)
-p <- length(mu)
-set.seed(123)
-X <- mvrnorm(n, mu, Sigma)
-mean_X <- colMeans(X)
-S_X <- t(X - mean_X) %*% (X - mean_X)
-#Plug-in generation of dataset
-V <- mvrnorm(n, mean_X, S_X / (n - 1))
-#PPS generation of dataset
-tilde_inverse_Sigma <- rwish(n + alpha - p - 2, solve(S_X))
-tilde_Sigma <- solve(tilde_inverse_Sigma)
-tilde_mu <- mvrnorm(1, mean_X, tilde_Sigma / n)
-W <- mvrnorm(n, tilde_mu, tilde_Sigma)
-#Estimators Plug-in
-mean_V <- colMeans(V)
-S_star <- t(V - mean_V) %*% (V - mean_V)
-#Estimators Posterior Predictive Sampling
-mean_W <- colMeans(W)
-S_bullet <- t(W - mean_W) %*% (W - mean_W)
+simOrigData <- function(n_sample, n_var, mu=1:n_var, Sigma=diag(1,n_var,n_var) , seed = 1234){
+  set.seed(seed)
+  X <- mvrnorm(n_sample, mu, Sigma)
+  return (X)
+}
+
+simSynthData <- function(X, n_imp = dim(X)[1]){
+  mean_X <- colMeans(X)
+  S_X <- t(X - mean_X) %*% (X - mean_X)
+  V <- mvrnorm(n_imp, mean_X, var(X) * dim(X)[1]/ (dim(X)[1] - 1))
+  return (V)
+}
+
+# Create original simulated dataset
+
+df_o = simOrigData(100, 4, mu = c(0,0,0,0), Sigma = diag(1,4,4))
+
+# Create singly imputed synthetic dataset
+
+df_s = simSynthData(df_o)
+
+#Estimators Original
+mean_o <- colMeans(df_o)
+S_o <- (t(df_o)- mean_o) %*% t(t(df_o)- mean_o) # careful about this computation
+# mean_o is a column vector and if you are thinking as n X p matrices and row vectors
+# you should be aware of this
+
+#Estimators synthetic
+mean_s <- colMeans(df_s)
+S_s <- (t(df_s)- mean_s) %*% t(t(df_s)- mean_s) # careful about this computation
+
+print(mean_o)
+print(mean_s)
+print(c(0,0,0,0))
+print(S_o/(dim(df_o)[1]-1))
+print(S_s/(dim(df_s)[1]-1))
+print(diag(1,4,4))
