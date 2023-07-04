@@ -13,7 +13,6 @@
 #' @examples
 #' library(MASS)
 #' n_sample = 100
-#' n_var = 4
 #' mu=c(0,0,0,0)
 #' Sigma=diag(1,4,4)
 #' # Create original simulated dataset
