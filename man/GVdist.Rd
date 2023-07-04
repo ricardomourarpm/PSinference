@@ -22,9 +22,8 @@ Its distribution is
 \deqn{T_1^* \sim  \prod_{i=1}^n \chi_{n-i}^2 \prod_{i=1}^p \chi_{n-i}^2}
 where \eqn{\chi_{n-i}^2} are all independent chi-square random variables.
 The \eqn{(1-\alpha)} level confidence interval for \eqn{|\Sigma|} is given by
-}
-\details{
-
+\deqn{\left(\frac{(n-1)^p|\tilde{S}^\star|}{t^\star_{1,1-\alpha/2}},\frac{(n-1)^p|\tilde{S}^\star|}{t^\star_{1,\alpha/2}} \right)}
+where \eqn{\tilde{S}^\star} is the observed value of \eqn{S^\star} and \eqn{t^\star_{1,\gamma}} is the \eqn{\gamma}th percentile of \eqn{T_1}.
 }
 \examples{
 library(MASS)
