@@ -2,14 +2,13 @@
 #'
 #' This function calculates
 #'
-#' @param X
-#' @param nsample .
-#' @param pvariates .
-#' @param iterations .
+#' @param X kjk
+#' @param n_imp xx
 #'
 #' @references
 #'  ref
 #' @importFrom MASS mvrnorm
+#' @importFrom stats var
 #' @examples
 #' library(MASS)
 #' n_sample = 100
