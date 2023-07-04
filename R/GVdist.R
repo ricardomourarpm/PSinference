@@ -1,6 +1,7 @@
 #' GVdist
 #'
-#' This function calculates the near-exact distribution of the pivotal random variable
+#' This function calculates the empirical distribution of the pivotal random variable that can be used to perform inferential procedures
+#' for the Generalized Variance based on the released Single Synthetic data generated under Plug-in Sampling.  
 #' \deqn{T_1^\star = (n-1)\frac{|S^*|}{|\Sigma|}}
 #' where \eqn{S^\star = \sum_{i=1}^n (v_i - \bar{v})(v_i - \bar{v})^{\top}} and \eqn{v_i} is the \eqn{i}th observation of the synthetic dataset.
 #' Its distribution is
