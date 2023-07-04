@@ -2,15 +2,20 @@
 #'
 #' This function calculates
 #'
-#' @param X
-#' @param nsample .
-#' @param pvariates .
-#' @param iterations .
+#' @param X kjk
+#' @param n_imp xx
 #'
 #' @references
 #'  ref
-#' @importFrom stats rWishart
+#' @importFrom MASS mvrnorm
+#' @importFrom stats var
 #' @examples
+#' library(MASS)
+#' n_sample = 100
+#' mu=c(0,0,0,0)
+#' Sigma=diag(1,4,4)
+#' # Create original simulated dataset
+#' df_o = mvrnorm(n_sample, mu, Sigma)
 #' # Create singly imputed synthetic dataset
 #' df_s = simSynthData(df_o)
 #' #Estimators synthetic
@@ -26,6 +31,6 @@
 simSynthData <- function(X, n_imp = dim(X)[1]){
   mean_X <- colMeans(X)
   S_X <- t(X - mean_X) %*% (X - mean_X)
-  V <- mvrnorm(n_imp, mean_X, var(X) * dim(X)[1]/ (dim(X)[1] - 1))
+  V <- MASS::mvrnorm(n_imp, mean_X, var(X) * dim(X)[1]/ (dim(X)[1] - 1))
   return (V)
 }
