@@ -5,9 +5,9 @@ Version: 0.1.0
 Author: Who wrote it
 Maintainer: The package maintainer <yourself@somewhere.net>
 Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+    for example Klein, M., Moura, R. and Sinha, B. (2021) Multivariate Normal Inference based on Singly Imputed Synthetic Data under Plug-in Sampling. Sankhya B 83, 273–287. <https://doi.org/10.1007/s13571-019-00215-9>.
 License: What license is it under?
+Imports : MASS
 Encoding: UTF-8
 LazyData: true
-
-Klein, M., Moura, R. and Sinha, B. (2021) Multivariate Normal Inference based on Singly Imputed Synthetic Data under Plug-in Sampling. Sankhya B 83, 273–287. https://doi.org/10.1007/s13571-019-00215-9
+RoxygenNote: 7.2.3
