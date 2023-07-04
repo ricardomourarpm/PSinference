@@ -1,6 +1,10 @@
 #' GVdist
 #'
-#' This function calculates
+#' This function calculates the near-exact distribution of the pivotal random variable
+#' \deqn{T_1^* = (n-1)\frac{|S^*|}{|\Sigma|}}
+#' The generalized variance is defined as \eqn{\\Sigma\}
+#'
+#'
 #'
 #' @param nsample .
 #' @param pvariates .
