@@ -8,7 +8,8 @@
 #' @param iterations .
 #'
 #' @references
-#'  ref
+#' Klein, M., Moura, R. and Sinha, B. (2021). Multivariate Normal Inference based on Singly Imputed Synthetic Data under Plug-in Sampling. Sankhya B 83, 273–287.
+#'
 #' @importFrom stats rWishart
 #' @examples
 #' Inddist(part = 2, nsample = 100, pvariates = 4, iterations = 2)
