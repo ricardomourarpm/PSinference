@@ -17,12 +17,6 @@
 #' \eqn{\widetilde{T_{4}^\star}>t^\star_{4,1-\alpha}} for \eqn{\alpha}-significance level, where \eqn{t^\star_{4,\gamma}} is the \eqn{\gamma}th percentile of \eqn{T_4^\star}.
 #'
 #'
-#'
-#' remove
-#' The \eqn{(1-\alpha)} level confidence interval for \eqn{|\Sigma|} is given by
-#' \deqn{\left(\frac{(n-1)^p|\tilde{S}^\star|}{t^\star_{1,1-\alpha/2}},\frac{(n-1)^p|\tilde{S}^\star|}{t^\star_{1,\alpha/2}} \right)}
-#' where \eqn{\tilde{S}^\star} is the observed value of \eqn{S^\star} and \eqn{t^\star_{1,\gamma}} is the \eqn{\gamma}th percentile of \eqn{T_1}.
-#'
 #' @param part Number of partitions.
 #' @param nsample Sample size.
 #' @param pvariates Number of variables.
