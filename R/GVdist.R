@@ -1,4 +1,4 @@
-#' GVdist  is
+#' Generalized Variance Empirical Distribution
 #'
 #' This function calculates the empirical distribution of the pivotal random variable that can be used to perform inferential procedures
 #' for the Generalized Variance based on the released Single Synthetic data generated under Plug-in Sampling.
