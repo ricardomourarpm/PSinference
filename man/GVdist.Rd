@@ -2,7 +2,7 @@
 % Please edit documentation in R/GVdist.R
 \name{GVdist}
 \alias{GVdist}
-\title{GVdist  is}
+\title{Generalized Variance Empirical Distribution}
 \usage{
 GVdist(nsample, pvariates, iterations = 10000)
 }
@@ -15,11 +15,12 @@ GVdist(nsample, pvariates, iterations = 10000)
 }
 \description{
 This function calculates the empirical distribution of the pivotal random variable that can be used to perform inferential procedures
-for the Generalized Variance based on the released Single Synthetic data generated under Plug-in Sampling.
+for the Generalized Variance based on the released Single Synthetic data generated under Plug-in Sampling, assuming that the original distribution is normally disributed
+We define
 \deqn{T_1^\star = (n-1)\frac{|S^*|}{|\Sigma|}}
 where \eqn{S^\star = \sum_{i=1}^n (v_i - \bar{v})(v_i - \bar{v})^{\top}} and \eqn{v_i} is the \eqn{i}th observation of the synthetic dataset.
-Its distribution is
-\deqn{T_1^* \sim  \prod_{i=1}^n \chi_{n-i}^2 \prod_{i=1}^p \chi_{n-i}^2}
+Its distribution is stochastic equivalet to
+\deqn{ \prod_{i=1}^n \chi_{n-i}^2 \prod_{i=1}^p \chi_{n-i}^2}
 where \eqn{\chi_{n-i}^2} are all independent chi-square random variables.
 The \eqn{(1-\alpha)} level confidence interval for \eqn{|\Sigma|} is given by
 \deqn{\left(\frac{(n-1)^p|\tilde{S}^\star|}{t^\star_{1,1-\alpha/2}},\frac{(n-1)^p|\tilde{S}^\star|}{t^\star_{1,\alpha/2}} \right)}
@@ -68,5 +69,5 @@ print(det(Sigma1))
 
 }
 \references{
-ref
+Klein, M., Moura, R. and Sinha, B. (2021). Multivariate Normal Inference based on Singly Imputed Synthetic Data under Plug-in Sampling. Sankhya B 83, 273–287.
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/Inddist.R
 \name{Inddist}
 \alias{Inddist}
-\title{Inddist distribution}
+\title{Independence Empirical Distribution}
 \usage{
 Inddist(part, nsample, pvariates, iterations)
 }
@@ -23,5 +23,5 @@ Inddist(part = 2, nsample = 100, pvariates = 4, iterations = 2)
 
 }
 \references{
-ref
+Klein, M., Moura, R. and Sinha, B. (2021). Multivariate Normal Inference based on Singly Imputed Synthetic Data under Plug-in Sampling. Sankhya B 83, 273–287.
 }
