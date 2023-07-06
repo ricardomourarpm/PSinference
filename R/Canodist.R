@@ -1,4 +1,5 @@
 #' Canonical Empirical Distribution
+
 #'
 #' This function calculates the empirical distribution of the pivotal random variable that can be used to perform inferential procedures
 #' for the test for the regression of one Set of variables on the other based on the released Single Synthetic data generated under Plug-in Sampling.
