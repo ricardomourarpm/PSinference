@@ -1,4 +1,4 @@
-#' Inddist distribution
+#' Independence Empirical Distribution
 #'
 #' This function calculates
 #'
