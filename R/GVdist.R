@@ -30,7 +30,9 @@
 #'
 #'# Original data created
 #'# two different population variances (determinants)
-#'Sigma1 <- matrix(c(1, 0.5, 0.5, 0.5,
+#'p <- 4
+#'mu <- c(1,2,3,4)
+#'Sigma <- matrix(c(1, 0.5, 0.5, 0.5,
 #'                   0.5, 1, 0.5, 0.5,
 #'                   0.5, 0.5, 1, 0.5,
 #'                   0.5, 0.5, 0.5, 1), nrow = 4, ncol = 4, byrow = TRUE)
