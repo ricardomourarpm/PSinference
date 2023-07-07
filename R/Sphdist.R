@@ -1,6 +1,32 @@
-#' sphdist
+#' Spherical Empirical Distribution
 #'
-#' This function calculates
+#' This function calculates the empirical distribution of the pivotal random
+#' variable that can be used to perform inferential procedures and
+#' test for the sphericity test of the population covariance matrix
+#' \eqn{\boldsymbol{\Sigma}} that is \eqn{\boldsymbol{\Sigma} = \sigma^2 I_p}
+#' based on the released Single Synthetic data generated under Plug-in Sampling,
+#' assuming that the original dataset is normally distributed.
+#' We define
+#' \deqn{T_2^\star|\Delta = \frac{|\boldsymbol{S}^{\star}|^{\frac{1}{p}}}{tr(\boldsymbol{S}^{\star})}}
+#' where \eqn{\boldsymbol{S}^\star = \sum_{i=1}^n (v_i - \bar{v})(v_i - \bar{v})^{\top}},
+#' \eqn{v_i} is the \eqn{i}th observation of the synthetic dataset.
+#'
+#' For \eqn{\boldsymbol{\Sigma} = \sigma^2 I_p}, its distribution is
+#' stochastic equivalent to
+#' \deqn{\frac{|\boldsymbol{\Omega}_{1}\boldsymbol{\Omega}_{2}|^{\frac{1}{p}}}{tr(\boldsymbol{\Omega}_{1}\boldsymbol{\Omega}_{2})}}
+#' where \eqn{\boldsymbol{\Omega}_1} and \eqn{\boldsymbol{\Omega}_2} are
+#' Wishart random variables,
+#' \eqn{\boldsymbol{\Omega}_1 \sim \mathcal{W}_p(n-1, \frac{I_p}{n-1})}
+#' is independent of \eqn{\boldsymbol{\Omega}_2 \sim \mathcal{W}_p(n-1, I_p)}.
+#'
+#' To test \eqn{H_0: \boldsymbol{\Sigma} = \sigma^2 I_p}, compute the value of
+#' \eqn{T_{2}^\star}, \eqn{\widetilde{T_{2}^\star}},  with the observed values
+#' and reject the null hypothesis if
+#' \eqn{\widetilde{T_{2}^\star}>t^\star_{2,\alpha}}
+#' for \eqn{\alpha}-significance level, where \eqn{t^\star_{2,\gamma}}
+#' is the \eqn{\gamma}th percentile of \eqn{T_2^\star}.
+#'
+
 #'
 #' @param nsample .
 #' @param pvariates .

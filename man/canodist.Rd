@@ -30,13 +30,6 @@ where \eqn{\Omega} are all independent Wishart random variables, \eqn{\Omega \si
 
 To test \eqn{H_0: \Delta =\Delta_0}, compute the value of \eqn{T_{4}^\star}, \eqn{\widetilde{T_{4}^\star}},  with the observed values and reject the null hypothesis if
 \eqn{\widetilde{T_{4}^\star}>t^\star_{4,1-\alpha}} for \eqn{\alpha}-significance level, where \eqn{t^\star_{4,\gamma}} is the \eqn{\gamma}th percentile of \eqn{T_4^\star}.
-
-
-
-remove
-The \eqn{(1-\alpha)} level confidence interval for \eqn{|\Sigma|} is given by
-\deqn{\left(\frac{(n-1)^p|\tilde{S}^\star|}{t^\star_{1,1-\alpha/2}},\frac{(n-1)^p|\tilde{S}^\star|}{t^\star_{1,\alpha/2}} \right)}
-where \eqn{\tilde{S}^\star} is the observed value of \eqn{S^\star} and \eqn{t^\star_{1,\gamma}} is the \eqn{\gamma}th percentile of \eqn{T_1}.
 }
 \examples{
 canodist(part = 2, nsample = 100, pvariates = 4, iterations = 2)
