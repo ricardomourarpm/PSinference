@@ -7,10 +7,9 @@
 #' based on the released Single Synthetic data generated under Plug-in Sampling,
 #' assuming that the original dataset is normally distributed.
 #' We define
-#' \deqn{T_2^\star|\Delta = \frac{|\boldsymbol{S}^{\star}|^{\frac{1}{p}}}{tr(\boldsymbol{S}^{\star})}}
+#' \deqn{T_2^\star = \frac{|\boldsymbol{S}^{\star}|^{\frac{1}{p}}}{tr(\boldsymbol{S}^{\star})}}
 #' where \eqn{\boldsymbol{S}^\star = \sum_{i=1}^n (v_i - \bar{v})(v_i - \bar{v})^{\top}},
 #' \eqn{v_i} is the \eqn{i}th observation of the synthetic dataset.
-#'
 #' For \eqn{\boldsymbol{\Sigma} = \sigma^2 I_p}, its distribution is
 #' stochastic equivalent to
 #' \deqn{\frac{|\boldsymbol{\Omega}_{1}\boldsymbol{\Omega}_{2}|^{\frac{1}{p}}}{tr(\boldsymbol{\Omega}_{1}\boldsymbol{\Omega}_{2})}}
@@ -18,22 +17,20 @@
 #' Wishart random variables,
 #' \eqn{\boldsymbol{\Omega}_1 \sim \mathcal{W}_p(n-1, \frac{I_p}{n-1})}
 #' is independent of \eqn{\boldsymbol{\Omega}_2 \sim \mathcal{W}_p(n-1, I_p)}.
-#'
-#' To test \eqn{H_0: \boldsymbol{\Sigma} = \sigma^2 I_p}, compute the value of
+#' To test \eqn{\mathcal{H}_0: \boldsymbol{\Sigma} = \sigma^2 I_p}, compute the value of
 #' \eqn{T_{2}^\star}, \eqn{\widetilde{T_{2}^\star}},  with the observed values
 #' and reject the null hypothesis if
 #' \eqn{\widetilde{T_{2}^\star}>t^\star_{2,\alpha}}
 #' for \eqn{\alpha}-significance level, where \eqn{t^\star_{2,\gamma}}
 #' is the \eqn{\gamma}th percentile of \eqn{T_2^\star}.
 #'
-
-#'
-#' @param nsample .
-#' @param pvariates .
-#' @param iterations .
+#' @param nsample Sample size.
+#' @param pvariates Number of variables.
+#' @param iterations Number of iterations for simulating values from the
+#'  distribution and finding the quantiles. Default is \code{10000}.
 #'
 #' @references
-#'  ref
+#' Klein, M., Moura, R. and Sinha, B. (2021). Multivariate Normal Inference based on Singly Imputed Synthetic Data under Plug-in Sampling. Sankhya B 83, 273–287.
 #' @importFrom stats rWishart
 #'
 #' @examples

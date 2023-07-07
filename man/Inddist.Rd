@@ -7,16 +7,45 @@
 Inddist(part, nsample, pvariates, iterations)
 }
 \arguments{
-\item{part}{.}
+\item{part}{Number of partitions.}
 
-\item{nsample}{.}
+\item{nsample}{Sample size.}
 
-\item{pvariates}{.}
+\item{pvariates}{Number of variables.}
 
-\item{iterations}{.}
+\item{iterations}{Number of iterations for simulating values from the distribution and finding the quantiles. Default is \code{10000}.}
 }
 \description{
-This function calculates
+This function calculates the empirical distribution of the pivotal random
+variable that can be used to perform inferential procedures and
+test the independence of two subsets of variables on the other based on the
+released Single Synthetic data generated under Plug-in Sampling, assuming
+that the original dataset is normally distributed. We define
+\deqn{T_3^\star =
+\frac{(|\boldsymbol{S}^{\star}|}
+{|\boldsymbol{S}^{\star}_{11}||\boldsymbol{S}^{\star}_{22}|}}
+where \eqn{\boldsymbol{S}^\star = \sum_{i=1}^n (v_i - \bar{v})(v_i - \bar{v})^{\top}},
+\eqn{v_i} is the \eqn{i}th observation of the synthetic dataset,
+considering \eqn{\boldsymbol{S}^\star} partitioned as
+\deqn{\boldsymbol{S}^{\star}=\left[\begin{array}{lll}
+\boldsymbol{S}^{\star}_{11}& \boldsymbol{S}^{\star}_{12}\\
+\boldsymbol{S}^{\star}_{21} & \boldsymbol{S}^{\star}_{22}
+\end{array}\right].}
+Under the assumption that \eqn{\boldsymbol{\Sigma}_{12} = \boldsymbol{0}},
+its distribution is stochastic equivalent to
+\deqn{\frac{|\boldsymbol{\Omega}|}{|\boldsymbol{\Omega}_{11}||\boldsymbol{\Omega}_{22}|}}
+where \eqn{\boldsymbol{\Omega}} are all independent Wishart random variables,
+\eqn{\boldsymbol{\Omega} \sim \mathcal{W}_p(n-1, \frac{\boldsymbol{W}}{n-1})}
+where
+\eqn{\boldsymbol{W} \sim \mathcal{W}_p(n-1, I_p)} and
+\eqn{\boldsymbol{\Omega}} partitioned in the same way as
+\eqn{\boldsymbol{S}^{\star}}.
+To test \eqn{\mathcal{H}_0: \boldsymbol{\Sigma}_{12} = \boldsymbol{0}},
+compute the value of \eqn{T_{3}^\star}, \eqn{\widetilde{T_{3}^\star}},
+with the observed values and reject the null hypothesis if
+\eqn{\widetilde{T_{3}^\star}>t^\star_{3,\alpha}} for
+\eqn{\alpha}-significance level, where \eqn{t^\star_{3,\gamma}} is the
+\eqn{\gamma}th percentile of \eqn{T_3^\star}.
 }
 \examples{
 Inddist(part = 2, nsample = 100, pvariates = 4, iterations = 2)

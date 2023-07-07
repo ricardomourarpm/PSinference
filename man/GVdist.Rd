@@ -14,20 +14,26 @@ GVdist(nsample, pvariates, iterations = 10000)
 \item{iterations}{Number of iterations for simulating values from the distribution and finding the quantiles. Default is \code{10000}.}
 }
 \description{
-This function calculates the empirical distribution of the pivotal random variable that can be used to perform inferential procedures
-for the Generalized Variance based on the released Single Synthetic data generated under Plug-in Sampling, assuming that the original distribution is normally disributed
-We define
-\deqn{T_1^\star = (n-1)\frac{|S^*|}{|\Sigma|}}
-where \eqn{S^\star = \sum_{i=1}^n (v_i - \bar{v})(v_i - \bar{v})^{\top}} and \eqn{v_i} is the \eqn{i}th observation of the synthetic dataset.
-Its distribution is stochastic equivalet to
+This function calculates the empirical distribution of the pivotal random
+variable that can be used to perform inferential procedures
+for the Generalized Variance based on the released Single Synthetic data
+generated under Plug-in Sampling, assuming that the original distribution
+is normally disributed. We define
+\deqn{T_1^\star = (n-1)\frac{|\boldsymbol{S}^*|}{|\boldsymbol{\Sigma}|}}
+where \eqn{\boldsymbol{S}^\star = \sum_{i=1}^n (v_i - \bar{v})(v_i - \bar{v})^{\top}}
+and \eqn{v_i} is the \eqn{i}th observation of the synthetic dataset.
+Its distribution is stochastic equivalent to
 \deqn{ \prod_{i=1}^n \chi_{n-i}^2 \prod_{i=1}^p \chi_{n-i}^2}
 where \eqn{\chi_{n-i}^2} are all independent chi-square random variables.
-The \eqn{(1-\alpha)} level confidence interval for \eqn{|\Sigma|} is given by
-\deqn{\left(\frac{(n-1)^p|\tilde{S}^\star|}{t^\star_{1,1-\alpha/2}},\frac{(n-1)^p|\tilde{S}^\star|}{t^\star_{1,\alpha/2}} \right)}
-where \eqn{\tilde{S}^\star} is the observed value of \eqn{S^\star} and \eqn{t^\star_{1,\gamma}} is the \eqn{\gamma}th percentile of \eqn{T_1}.
+The \eqn{(1-\alpha)} level confidence interval for \eqn{|\boldsymbol{\Sigma}|}
+is given by
+\deqn{\left(\frac{(n-1)^p|\tilde{\boldsymbol{S}}^\star|}{t^\star_{1,1-\alpha/2}},
+\frac{(n-1)^p|\tilde{\boldsymbol{S}}^\star|}{t^\star_{1,\alpha/2}} \right)}
+where \eqn{\tilde{\boldsymbol{S}}^\star} is the observed value of
+\eqn{\boldsymbol{S}^\star} and \eqn{t^\star_{1,\gamma}}
+is the \eqn{\gamma}th percentile of \eqn{T_1}.
 }
 \examples{
-library(MASS)
 
 # Original data created
 # two different population variances (determinants)
@@ -60,8 +66,8 @@ T1 <- GVdist(100, p1, 10000)
 q975 <- quantile(T1, 0.975)
 q025 <- quantile(T1, 0.025)
 
-left <- (100-1)^p1*det(cov(df_s1)*99)/q975
-right <- (100-1)^p1*det(cov(df_s1)*99)/q025
+left <- (100-1)^p1 * det(cov(df_s1)*99)/q975
+right <- (100-1)^p1 * det(cov(df_s1)*99)/q025
 
 cat(left,right,'\n')
 print(det(Sigma1))

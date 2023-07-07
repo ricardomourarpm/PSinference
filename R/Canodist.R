@@ -1,19 +1,40 @@
 #' Canonical Empirical Distribution
 #'
-#' This function calculates the empirical distribution of the pivotal random variable that can be used to perform inferential procedures and
-#' test for the regression of one set of variables on the other based on the released Single Synthetic data generated under Plug-in Sampling, assuming that the original dataset is normally distributed.
-#' We define
-#' \deqn{T_4^\star|\Delta = \frac{(|S^{\star}_{12}(S^{\star}_{22})^{-1}-\Delta)S^{\star}_{22}(S^{\star}_{12})(S^{\star}_22)^{-1}-\Delta)^\top|}{|S^{\star}_{11.2}|}}
-#' where \eqn{S^\star = \sum_{i=1}^n (v_i - \bar{v})(v_i - \bar{v})^{\top}}, \eqn{v_i} is the \eqn{i}th observation of the synthetic dataset, considering \eqn{S^\star} partitioned as
-#' \deqn{S^{\star}=\left[\begin{array}{lll} S^{\star}_{11}& S^{\star}_{12}\\ S^{\star}_{21} & S^{\star}_{22} \end{array}\right].}
-#'
-#'
-#' For \eqn{\Delta = \Sigma_{12}\Sigma_{22}^{-1}}, its distribution is stochastic equivalent to
-#' \deqn{\frac{|\Omega_{12}\Omega_{22}^{-1}\Omega_{21}|}{|\Omega_{11}-\Omega_{12}\Omega_{22}^{-1}\Omega_{21}|}}
-#' where \eqn{\Omega} are all independent Wishart random variables, \eqn{\Omega \sim W_p(n-1, \frac{W}{n-1})} where \eqn{W \sim W_p(n-1, I_p)} and \eqn{\Omega} partitioned in the same way as \eqn{S^{\star}}.
-#'
-#' To test \eqn{H_0: \Delta =\Delta_0}, compute the value of \eqn{T_{4}^\star}, \eqn{\widetilde{T_{4}^\star}},  with the observed values and reject the null hypothesis if
-#' \eqn{\widetilde{T_{4}^\star}>t^\star_{4,1-\alpha}} for \eqn{\alpha}-significance level, where \eqn{t^\star_{4,\gamma}} is the \eqn{\gamma}th percentile of \eqn{T_4^\star}.
+#' This function calculates the empirical distribution of the pivotal random
+#' variable that can be used to perform inferential procedures and
+#' test for the regression of one set of variables on the other based on the
+#' released Single Synthetic data generated under Plug-in Sampling, assuming
+#' that the original dataset is normally distributed. We define
+#' \deqn{T_4^\star|\boldsymbol{\Delta} =
+#' \frac{(|\boldsymbol{S}^{\star}_{12}
+#' (\boldsymbol{S}^{\star}_{22})^{-1}-\boldsymbol{\Delta})
+#' \boldsymbol{S}^{\star}_{22}(\boldsymbol{S}^{\star}_{12})
+#' (\boldsymbol{S}^{\star}_22)^{-1}-\boldsymbol{\Delta})^\top|}
+#' {|\boldsymbol{S}^{\star}_{11.2}|}}
+#' where \eqn{\boldsymbol{S}^\star = \sum_{i=1}^n (v_i - \bar{v})(v_i - \bar{v})^{\top}},
+#' \eqn{v_i} is the \eqn{i}th observation of the synthetic dataset,
+#' considering \eqn{\boldsymbol{S}^\star} partitioned as
+#' \deqn{\boldsymbol{S}^{\star}=\left[\begin{array}{lll}
+#' \boldsymbol{S}^{\star}_{11}& \boldsymbol{S}^{\star}_{12}\\
+#' \boldsymbol{S}^{\star}_{21} & \boldsymbol{S}^{\star}_{22}
+#' \end{array}\right].}
+#' For \eqn{\Delta = \boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}},
+#' its distribution is stochastic equivalent to
+#' \deqn{\frac{|\boldsymbol{\Omega}_{12}\boldsymbol{\Omega}_{22}^{-1}
+#' \boldsymbol{\Omega}_{21}|}{|\boldsymbol{\Omega}_{11}-\boldsymbol{\Omega}_{12}
+#' \boldsymbol{\Omega}_{22}^{-1}\boldsymbol{\Omega}_{21}|}}
+#' where \eqn{\boldsymbol{\Omega}} are all independent Wishart random variables,
+#' \eqn{\boldsymbol{\Omega} \sim \mathcal{W}_p(n-1, \frac{\boldsymbol{W}}{n-1})}
+#' where
+#' \eqn{\boldsymbol{W} \sim \mathcal{W}_p(n-1, I_p)} and
+#' \eqn{\boldsymbol{\Omega}} partitioned in the same way as
+#' \eqn{\boldsymbol{S}^{\star}}.
+#' To test \eqn{\mathcal{H}_0: \boldsymbol{\Delta} =\Delta_0}, compute the value
+#'  of \eqn{T_{4}^\star}, \eqn{\widetilde{T_{4}^\star}},  with the observed
+#'  values and reject the null hypothesis if
+#' \eqn{\widetilde{T_{4}^\star}>t^\star_{4,1-\alpha}} for
+#' \eqn{\alpha}-significance level, where \eqn{t^\star_{4,\gamma}} is the
+#' \eqn{\gamma}th percentile of \eqn{T_4^\star}.
 #'
 #'
 #' @param part Number of partitions.
