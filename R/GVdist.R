@@ -28,8 +28,7 @@
 #'
 #' @examples
 #'
-#'# Original data created
-#'# two different population variances (determinants)
+#'# Original data creation
 #'library(MASS)
 #'mu <- c(1,2,3,4)
 #'Sigma <- matrix(c(1, 0.5, 0.5, 0.5,

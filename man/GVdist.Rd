@@ -35,45 +35,36 @@ is the \eqn{\gamma}th percentile of \eqn{T_1}.
 }
 \examples{
 
-# Original data created
-# two different population variances (determinants)
+# Original data creation
 library(MASS)
-p <- 4
 mu <- c(1,2,3,4)
 Sigma <- matrix(c(1, 0.5, 0.5, 0.5,
                   0.5, 1, 0.5, 0.5,
                   0.5, 0.5, 1, 0.5,
                   0.5, 0.5, 0.5, 1), nrow = 4, ncol = 4, byrow = TRUE)
 
-Sigma2 <- matrix(c(1, 0.5, 0, 0,
-                  0.5, 2, 0, 0,
-                  0, 0, 3, 0.2,
-                  0, 0, 0.2, 4), nrow = 4, ncol = 4, byrow = TRUE)
 n_sample = 100
 # Create original simulated dataset
-df_o1 = mvrnorm(n_sample, mu = c(1,0,5,0), Sigma = Sigma1)
-df_o2 = mvrnorm(n_sample, mu = c(1,0,5,0), Sigma = Sigma2)
+df = mvrnorm(n_sample, mu = mu, Sigma = Sigma)
 
-# Sim data created
+# Sinthetic data created
 
-df_s1 = simSynthData(df_o1)
-df_s2 = simSynthData(df_o2)
+df_s = simSynthData(df)
 
 
 # Gather the 0.025 and 0.975 quantiles and construct confident interval for sigma^2
 # Check that sigma^2 is inside in both cases
-p1 = dim(df_s1)[2]
-p2 = dim(df_s2)[2]
+p = dim(df_s)[2]
 
-T1 <- GVdist(100, p1, 10000)
-q975 <- quantile(T1, 0.975)
-q025 <- quantile(T1, 0.025)
+T <- GVdist(100, p, 10000)
+q975 <- quantile(T, 0.975)
+q025 <- quantile(T, 0.025)
 
-left <- (100-1)^p1 * det(cov(df_s1)*99)/q975
-right <- (100-1)^p1 * det(cov(df_s1)*99)/q025
+left <- (100-1)^p * det(cov(df_s)*99)/q975
+right <- (100-1)^p * det(cov(df_s)*99)/q025
 
 cat(left,right,'\n')
-print(det(Sigma1))
+print(det(Sigma))
 # The synthetic value is inside the confidence interval of GV
 
 }

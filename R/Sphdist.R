@@ -1,23 +1,22 @@
 #' Spherical Empirical Distribution
 #'
 #' This function calculates the empirical distribution of the pivotal random
-#' variable that can be used to perform inferential procedures and
-#' test for the sphericity test of the population covariance matrix
-#' \eqn{\boldsymbol{\Sigma}} that is \eqn{\boldsymbol{\Sigma} = \sigma^2 I_p}
+#' variable that can be used to perform the Sphericity test of the population covariance matrix
+#' \eqn{\boldsymbol{\Sigma}} that is \eqn{\boldsymbol{\Sigma} = \sigma^2 I_p},
 #' based on the released Single Synthetic data generated under Plug-in Sampling,
 #' assuming that the original dataset is normally distributed.
 #' We define
-#' \deqn{T_2^\star = \frac{|\boldsymbol{S}^{\star}|^{\frac{1}{p}}}{tr(\boldsymbol{S}^{\star})}}
+#' \deqn{T_2^\star = \frac{|\boldsymbol{S}^{\star}|^{\frac{1}{p}}}{tr(\boldsymbol{S}^{\star})/p}}
 #' where \eqn{\boldsymbol{S}^\star = \sum_{i=1}^n (v_i - \bar{v})(v_i - \bar{v})^{\top}},
 #' \eqn{v_i} is the \eqn{i}th observation of the synthetic dataset.
 #' For \eqn{\boldsymbol{\Sigma} = \sigma^2 I_p}, its distribution is
 #' stochastic equivalent to
-#' \deqn{\frac{|\boldsymbol{\Omega}_{1}\boldsymbol{\Omega}_{2}|^{\frac{1}{p}}}{tr(\boldsymbol{\Omega}_{1}\boldsymbol{\Omega}_{2})}}
+#' \deqn{\frac{|\boldsymbol{\Omega}_{1}\boldsymbol{\Omega}_{2}|^{\frac{1}{p}}}{tr(\boldsymbol{\Omega}_{1}\boldsymbol{\Omega}_{2})/p}}
 #' where \eqn{\boldsymbol{\Omega}_1} and \eqn{\boldsymbol{\Omega}_2} are
 #' Wishart random variables,
 #' \eqn{\boldsymbol{\Omega}_1 \sim \mathcal{W}_p(n-1, \frac{I_p}{n-1})}
 #' is independent of \eqn{\boldsymbol{\Omega}_2 \sim \mathcal{W}_p(n-1, I_p)}.
-#' To test \eqn{\mathcal{H}_0: \boldsymbol{\Sigma} = \sigma^2 I_p}, compute the value of
+#' To test \eqn{\mathcal{H}_0: \boldsymbol{\Sigma} = \sigma^2 I_p}, compute the observed value of
 #' \eqn{T_{2}^\star}, \eqn{\widetilde{T_{2}^\star}},  with the observed values
 #' and reject the null hypothesis if
 #' \eqn{\widetilde{T_{2}^\star}>t^\star_{2,\alpha}}
@@ -34,8 +33,40 @@
 #' @importFrom stats rWishart
 #'
 #' @examples
-#' Sphdist(nsample = 100, pvariates = 4, iterations = 2)
+#'# Original data created
+#'library(MASS)
+#'mu <- c(1,2,3,4)
+#'Sigma <- matrix(c(1, 0, 0, 0,
+#'                   0, 1, 0, 0,
+#'                   0, 0, 1, 0,
+#'                   0, 0, 0, 1), nrow = 4, ncol = 4, byrow = TRUE)
 #'
+#' n_sample = 100
+#' # Create original simulated dataset
+#' df = mvrnorm(n_sample, mu = mu, Sigma = Sigma)
+#'
+#'# Sinthetic data created
+#'
+#'df_s = simSynthData(df)
+#'
+#'
+#'# Gather the 0.95 quantile
+#'
+#'p = dim(df_s)[2]
+#'
+#'T_sph <- Sphdist(nsample = n_sample, pvariates = p, iterations = 10000)
+#'q95 <- quantile(T_sph, 0.95)
+#'
+#'# Compute the observed value of T from the synthetic dataset
+#'S_star = cov(df_s*(n_sample-1))
+#'
+#'T_obs = (det(S_star)^(1/p))/(sum(diag(S_star))/p)
+#'
+#'print(q95)
+#'print(T_obs)
+#'
+#'#Since the observed value is bigger than the 95% quantile, we don't have statistical evidences to reject the Sphericity property
+#'#Note that the value is very close to one
 #' @export
 
 Sphdist <- function(nsample, pvariates, iterations) {
