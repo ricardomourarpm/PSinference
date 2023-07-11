@@ -84,7 +84,9 @@
 #'
 #' print(T4_obs)
 #' print(q95)
-#' # Since the observed value is bigger than the 95% quantile, we don't have statistical evidences to reject the Sphericity property
+#' # Since the observed value is bigger than the 95% quantile,
+#' # we don't have statistical evidences to reject the
+#' # test for the regression of one set of variables on the other
 #' # Note that the value is very close to one
 #' @export
 
