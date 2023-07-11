@@ -48,7 +48,34 @@ with the observed values and reject the null hypothesis if
 \eqn{\gamma}th percentile of \eqn{T_3^\star}.
 }
 \examples{
-Inddist(part = 2, nsample = 100, pvariates = 4, iterations = 2)
+library(MASS)
+n_sample = 100
+p = 4
+mu <- c(1,2,3,4)
+Sigma = matrix(c(1,0.5,0,0,
+                  0.5,2,0,0,
+                  0,0,3,0.2,
+                  0, 0, 0.2,4), nr = 4, nc = 4, byrow = TRUE)
+seed = 1
+df = mvrnorm(n_sample, mu = mu, Sigma = Sigma)
+df_s = simSynthData(df)
+
+part = 2
+
+Sstar = cov(df_s)
+Sstar_11 = partition(Sstar,nrows = part, ncol = part)[[1]]
+Sstar_12 = partition(Sstar,nrows = part, ncol = part)[[2]]
+Sstar_21 = partition(Sstar,nrows = part, ncol = part)[[3]]
+Sstar_22 = partition(Sstar,nrows = part, ncol = part)[[4]]
+
+T3_star = det(Sstar)/(det(Sstar_11)*det(Sstar_22))
+
+alpha = 0.05
+T3 <- Inddist(part = part, nsample = n, pvariates = p, iterations = 1000)
+q005 <- quantile(T3, alpha)
+
+T3_star < q005 #False means Delta != Delta0
+
 
 }
 \references{

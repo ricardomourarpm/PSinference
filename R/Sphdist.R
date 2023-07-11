@@ -40,7 +40,7 @@
 #'                   0, 1, 0, 0,
 #'                   0, 0, 1, 0,
 #'                   0, 0, 0, 1), nrow = 4, ncol = 4, byrow = TRUE)
-#'
+#' seed = 1
 #' n_sample = 100
 #' # Create original simulated dataset
 #' df = mvrnorm(n_sample, mu = mu, Sigma = Sigma)

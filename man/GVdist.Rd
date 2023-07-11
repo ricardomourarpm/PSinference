@@ -42,12 +42,12 @@ Sigma <- matrix(c(1, 0.5, 0.5, 0.5,
                   0.5, 1, 0.5, 0.5,
                   0.5, 0.5, 1, 0.5,
                   0.5, 0.5, 0.5, 1), nrow = 4, ncol = 4, byrow = TRUE)
-
+seed = 1
 n_sample = 100
 # Create original simulated dataset
 df = mvrnorm(n_sample, mu = mu, Sigma = Sigma)
 
-# Sinthetic data created
+# Synthetic data created
 
 df_s = simSynthData(df)
 

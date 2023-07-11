@@ -61,6 +61,8 @@ Sigma = matrix(c(1,0.5,0,0,
                   0.5,2,0,0,
                   0,0,3,0.2,
                   0, 0, 0.2,4), nr = 4, nc = 4, byrow = TRUE)
+
+seed = 1
 df = mvrnorm(n_sample, mu = mu, Sigma = Sigma)
 df_s = simSynthData(df)
 
@@ -80,13 +82,15 @@ DeltaEst = Sstar_12 \%*\% solve(Sstar_22)
 Sstar11_2 = Sstar_11 - Sstar_12 \%*\% solve(Sstar_22) \%*\% Sstar_21
 
 
-T4_star = det((DeltaEst-Delta0)\%*\%Sstar_22\%*\%t(DeltaEst-Delta0))/det(Sstar11_2)
+T4_obs = det((DeltaEst-Delta0)\%*\%Sstar_22\%*\%t(DeltaEst-Delta0))/det(Sstar11_2)
 
-alpha = 0.05
 T4 <- canodist(part = part, nsample = n, pvariates = p, iterations = 1000)
-q975 <- quantile(T4, 1-alpha)
+q95 <- quantile(T4, 0.95)
 
-T4_star > q975 #False means Delta != Delta0
+print(T4_obs)
+print(q95)
+# Since the observed value is bigger than the 95\% quantile, we don't have statistical evidences to reject the Sphericity property
+# Note that the value is very close to one
 }
 \references{
 Klein, M., Moura, R. and Sinha, B. (2021). Multivariate Normal Inference based on Singly Imputed Synthetic Data under Plug-in Sampling. Sankhya B 83, 273–287.
