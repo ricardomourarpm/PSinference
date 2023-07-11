@@ -25,7 +25,7 @@ that the original dataset is normally distributed. We define
 \frac{(|\boldsymbol{S}^{\star}_{12}
 (\boldsymbol{S}^{\star}_{22})^{-1}-\boldsymbol{\Delta})
 \boldsymbol{S}^{\star}_{22}(\boldsymbol{S}^{\star}_{12})
-(\boldsymbol{S}^{\star}_22)^{-1}-\boldsymbol{\Delta})^\top|}
+(\boldsymbol{S}^{\star}_{22})^{-1}-\boldsymbol{\Delta})^\top|}
 {|\boldsymbol{S}^{\star}_{11.2}|}}
 where \eqn{\boldsymbol{S}^\star = \sum_{i=1}^n (v_i - \bar{v})(v_i - \bar{v})^{\top}},
 \eqn{v_i} is the \eqn{i}th observation of the synthetic dataset,
@@ -53,18 +53,40 @@ To test \eqn{\mathcal{H}_0: \boldsymbol{\Delta} =\Delta_0}, compute the value
 \eqn{\gamma}th percentile of \eqn{T_4^\star}.
 }
 \examples{
-n = 100
+library(MASS)
+n_sample = 100
 p = 4
-Sigma4 = matrix(c(1,0.5,0,0,0.5,2,0,0,0,0,3,0.2,0, 0, 0.2,4), nr = 4, nc = 4, byrow = TRUE)
+mu <- c(1,2,3,4)
+Sigma = matrix(c(1,0.5,0,0,
+                  0.5,2,0,0,
+                  0,0,3,0.2,
+                  0, 0, 0.2,4), nr = 4, nc = 4, byrow = TRUE)
+df = mvrnorm(n_sample, mu = mu, Sigma = Sigma)
+df_s = simSynthData(df)
+
 part = 2
+Sigma_12 = partition(Sigma4,nrows = part, ncol = part)[[2]]
+Sigma_22 = partition(Sigma4,nrows = part, ncol = part)[[4]]
+Delta0 = Sigma_12 \%*\% solve(Sigma_22)
+
+Sstar = cov(df_s)
+Sstar_11 = partition(Sstar,nrows = part, ncol = part)[[1]]
+Sstar_12 = partition(Sstar,nrows = part, ncol = part)[[2]]
+Sstar_21 = partition(Sstar,nrows = part, ncol = part)[[3]]
+Sstar_22 = partition(Sstar,nrows = part, ncol = part)[[4]]
+
+
+DeltaEst = Sstar_12 \%*\% solve(Sstar_22)
+Sstar11_2 = Sstar_11 - Sstar_12 \%*\% solve(Sstar_22) \%*\% Sstar_21
+
+
+T4_star = det((DeltaEst-Delta0)\%*\%Sstar_22\%*\%t(DeltaEst-Delta0))/det(Sstar11_2)
+
 alpha = 0.05
-# Estimated coverage probability for test for
-# the regression of one set of variables on the other
+T4 <- canodist(part = part, nsample = n, pvariates = p, iterations = 1000)
+q975 <- quantile(T4, 1-alpha)
 
-T <- canodist(part = part, nsample = n, pvariates = p, iterations = 100)
-q975 <- quantile(T, 0.975)
-
-
+T4_star > q975 #False means Delta != Delta0
 }
 \references{
 Klein, M., Moura, R. and Sinha, B. (2021). Multivariate Normal Inference based on Singly Imputed Synthetic Data under Plug-in Sampling. Sankhya B 83, 273–287.

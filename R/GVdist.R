@@ -53,8 +53,8 @@
 #'q975 <- quantile(T, 0.975)
 #'q025 <- quantile(T, 0.025)
 #'
-#'left <- (100-1)^p * det(cov(df_s)*99)/q975
-#'right <- (100-1)^p * det(cov(df_s)*99)/q025
+#'left <- (n_sample-1)^p * det(cov(df_s)*(n_sample-1))/q975
+#'right <- (n_sample-1)^p * det(cov(df_s)*(n_sample-1))/q025
 #'
 #'cat(left,right,'\n')
 #'print(det(Sigma))
