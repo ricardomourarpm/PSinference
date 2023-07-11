@@ -53,7 +53,17 @@ To test \eqn{\mathcal{H}_0: \boldsymbol{\Delta} =\Delta_0}, compute the value
 \eqn{\gamma}th percentile of \eqn{T_4^\star}.
 }
 \examples{
-canodist(part = 2, nsample = 100, pvariates = 4, iterations = 2)
+n = 100
+p = 4
+Sigma4 = matrix(c(1,0.5,0,0,0.5,2,0,0,0,0,3,0.2,0, 0, 0.2,4), nr = 4, nc = 4, byrow = TRUE)
+part = 2
+alpha = 0.05
+# Estimated coverage probability for test for
+# the regression of one set of variables on the other
+
+T <- canodist(part = part, nsample = n, pvariates = p, iterations = 100)
+q975 <- quantile(T, 0.975)
+
 
 }
 \references{
