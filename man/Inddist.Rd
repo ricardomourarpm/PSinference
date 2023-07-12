@@ -71,7 +71,7 @@ Sstar_22 = partition(Sstar,nrows = part, ncol = part)[[4]]
 T3_star = det(Sstar)/(det(Sstar_11)*det(Sstar_22))
 
 alpha = 0.05
-T3 <- Inddist(part = part, nsample = n, pvariates = p, iterations = 1000)
+T3 <- Inddist(part = part, nsample = n_sample, pvariates = p, iterations = 1000)
 q005 <- quantile(T3, alpha)
 
 T3_star < q005 #False means Delta != Delta0
