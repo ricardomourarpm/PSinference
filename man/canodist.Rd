@@ -67,8 +67,8 @@ df = mvrnorm(n_sample, mu = mu, Sigma = Sigma)
 df_s = simSynthData(df)
 
 part = 2
-Sigma_12 = partition(Sigma4,nrows = part, ncol = part)[[2]]
-Sigma_22 = partition(Sigma4,nrows = part, ncol = part)[[4]]
+Sigma_12 = partition(Sigma,nrows = part, ncol = part)[[2]]
+Sigma_22 = partition(Sigma,nrows = part, ncol = part)[[4]]
 Delta0 = Sigma_12 \%*\% solve(Sigma_22)
 
 Sstar = cov(df_s)
@@ -84,7 +84,7 @@ Sstar11_2 = Sstar_11 - Sstar_12 \%*\% solve(Sstar_22) \%*\% Sstar_21
 
 T4_obs = det((DeltaEst-Delta0)\%*\%Sstar_22\%*\%t(DeltaEst-Delta0))/det(Sstar11_2)
 
-T4 <- canodist(part = part, nsample = n, pvariates = p, iterations = 1000)
+T4 <- canodist(part = part, nsample = n_sample, pvariates = p, iterations = 1000)
 q95 <- quantile(T4, 0.95)
 
 print(T4_obs)
