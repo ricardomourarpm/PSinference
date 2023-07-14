@@ -7,7 +7,7 @@
 simSynthData(X, n_imp = dim(X)[1])
 }
 \arguments{
-\item{X}{kjk}
+\item{X}{matrix or dataframe}
 
 \item{n_imp}{xx}
 }

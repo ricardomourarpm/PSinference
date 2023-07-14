@@ -2,7 +2,7 @@
 #'
 #' This function calculates
 #'
-#' @param X kjk
+#' @param X matrix or dataframe
 #' @param n_imp xx
 #'
 #' @references
@@ -29,6 +29,7 @@
 #' @export
 
 simSynthData <- function(X, n_imp = dim(X)[1]){
+  X <- as.matrix(X)
   mean_X <- colMeans(X)
   S_X <- t(X - mean_X) %*% (X - mean_X)
   V <- MASS::mvrnorm(n_imp, mean_X, var(X) * dim(X)[1]/ (dim(X)[1] - 1))
