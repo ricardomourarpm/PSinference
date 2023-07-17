@@ -9,10 +9,18 @@ simSynthData(X, n_imp = dim(X)[1])
 \arguments{
 \item{X}{matrix or dataframe}
 
-\item{n_imp}{xx}
+\item{n_imp}{sample size}
 }
 \description{
-This function calculates
+This function is used to generate a single synthetic version of the original data via Plug-in Sampling.
+}
+\details{
+Assume that \eqn{\mathbf{X}=\left(\mathbf{x}_1, \dots, \mathbf{x}_n\right)} is the original data, assumed to be normally distributed,
+we compute \eqn{\bar{\mathbf{x}}} as the sample mean and \eqn{\hat{\boldsymbol{\Sigma}}=\mathbf{S}/(n-1)} as the sample covariance matrix,
+where \eqn{\mathbf{S}} is the sample Wishart matrix.
+We generate \eqn{\mathbf{V}=\left(\mathbf{v}_1, \dots, \mathbf{v}_n\right)}, by drawing
+
+\deqn{\mathbf{v}_i\stackrel{i.i.d.}{\sim}N_p(\bar{\mathbf{x}},\hat{\boldsymbol{\Sigma}}).}
 }
 \examples{
 library(MASS)
@@ -33,5 +41,5 @@ print(mean_s)
 print(S_s/(dim(df_s)[1]-1))
 }
 \references{
-ref
+Klein, M., Moura, R. and Sinha, B. (2021). Multivariate Normal Inference based on Singly Imputed Synthetic Data under Plug-in Sampling. Sankhya B 83, 273–287.
 }
