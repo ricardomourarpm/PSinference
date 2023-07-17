@@ -26,7 +26,7 @@
 #' \boldsymbol{\Omega}_{21}|}{|\boldsymbol{\Omega}_{11}-\boldsymbol{\Omega}_{12}
 #' \boldsymbol{\Omega}_{22}^{-1}\boldsymbol{\Omega}_{21}|}}
 #' where \eqn{\boldsymbol{\Omega} \sim \mathcal{W}_p(n-1, \frac{\boldsymbol{W}}{n-1})},
-#' \eqn{\boldsymbol{W} \sim \mathcal{W}_p(n-1, I_p)} and
+#' \eqn{\boldsymbol{W} \sim \mathcal{W}_p(n-1, \mathbf{I}_p)} and
 #' \eqn{\boldsymbol{\Omega}} partitioned in the same way as
 #' \eqn{\boldsymbol{S}^{\star}}.
 #' To test \eqn{\mathcal{H}_0: \boldsymbol{\Delta} =\boldsymbol{\Delta}_0}, compute the value

@@ -4,7 +4,9 @@
 #' variable that can be used to perform inferential procedures
 #' for the Generalized Variance of the released Single Synthetic dataset
 #' generated under Plug-in Sampling, assuming that the original distribution
-#' is normally distributed. We define
+#' is normally distributed.
+#'
+#' We define
 #' \deqn{T_1^\star = (n-1)\frac{|\boldsymbol{S}^*|}{|\boldsymbol{\Sigma}|},}
 #' where \eqn{\boldsymbol{S}^\star = \sum_{i=1}^n (v_i - \bar{v})(v_i - \bar{v})^{\top}}, \eqn{\boldsymbol{\Sigma}} is the population covariance matrix
 #' and \eqn{v_i} is the \eqn{i}th observation of the synthetic dataset.

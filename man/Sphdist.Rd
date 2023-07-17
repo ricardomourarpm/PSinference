@@ -17,7 +17,7 @@ distribution and finding the quantiles. Default is \code{10000}.}
 \description{
 This function calculates the empirical distribution of the pivotal random
 variable that can be used to perform the Sphericity test of the population covariance matrix
-\eqn{\boldsymbol{\Sigma}} that is \eqn{\boldsymbol{\Sigma} = \sigma^2 I_p},
+\eqn{\boldsymbol{\Sigma}} that is \eqn{\boldsymbol{\Sigma} = \sigma^2 \mathbf{I}_p},
 based on the released Single Synthetic data generated under Plug-in Sampling,
 assuming that the original dataset is normally distributed.
 }

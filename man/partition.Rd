@@ -7,9 +7,9 @@
 partition(mat, nrows, ncols)
 }
 \arguments{
-\item{nrows}{either a Positive integer indicating the  number of rows blocks.}
+\item{nrows}{positive integer indicating the number of rows blocks.}
 
-\item{ncols}{either a Positive integer indicating the  number of columns blocks.}
+\item{ncols}{positive integer indicating the number of columns blocks.}
 
 \item{Matrix}{a matrix to split .}
 }

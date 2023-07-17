@@ -38,7 +38,7 @@ Under the assumption that \eqn{\boldsymbol{\Sigma}_{12} = \boldsymbol{0}},
 its distribution is stochastic equivalent to
 \deqn{\frac{|\boldsymbol{\Omega}|}{|\boldsymbol{\Omega}_{11}||\boldsymbol{\Omega}_{22}|}}
 where \eqn{\boldsymbol{\Omega} \sim \mathcal{W}_p(n-1, \frac{\boldsymbol{W}}{n-1})},
-\eqn{\boldsymbol{W} \sim \mathcal{W}_p(n-1, I_p)} and
+\eqn{\boldsymbol{W} \sim \mathcal{W}_p(n-1, \mathbf{I}_p)} and
 \eqn{\boldsymbol{\Omega}} partitioned in the same way as
 \eqn{\boldsymbol{S}^{\star}}.
 To test \eqn{\mathcal{H}_0: \boldsymbol{\Sigma}_{12} = \boldsymbol{0}},
@@ -80,8 +80,8 @@ alpha = 0.05
 T3 <- Inddist(part = part, nsample = n_sample, pvariates = p, iterations = 10000)
 q5 <- quantile(T3, alpha)
 
-T3_obs < q005 #False means that we don't have statistical evidences to reject independence
-print(T3_star)
+T3_obs < q5 #False means that we don't have statistical evidences to reject independence
+print(T3_obs)
 print(q5)
 # Note that the value of the observed T3_obs is close to one as expected
 }

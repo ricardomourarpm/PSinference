@@ -3,8 +3,8 @@
 #' This function Split a matrix into a list of blocks (either by rows and  columns).
 #'
 #' @param Matrix a matrix to split .
-#' @param nrows either a Positive integer indicating the  number of rows blocks.
-#' @param ncols either a Positive integer indicating the  number of columns blocks.
+#' @param nrows positive integer indicating the number of rows blocks.
+#' @param ncols positive integer indicating the number of columns blocks.
 #'
 #'
 #' @examples

@@ -6,13 +6,15 @@
 #' we compute \eqn{\bar{\mathbf{x}}} as the sample mean and \eqn{\hat{\boldsymbol{\Sigma}}=\mathbf{S}/(n-1)} as the sample covariance matrix,
 #' where \eqn{\mathbf{S}} is the sample Wishart matrix.
 #' We generate \eqn{\mathbf{V}=\left(\mathbf{v}_1, \dots, \mathbf{v}_n\right)}, by drawing
+#'
 #' \deqn{\mathbf{v}_i\stackrel{i.i.d.}{\sim}N_p(\bar{\mathbf{x}},\hat{\boldsymbol{\Sigma}}).}
 #'
-#' @param X kjk
-#' @param n_imp xx
+#' @param X matrix or dataframe
+#' @param n_imp sample size
 #'
 #' @references
-#'  ref
+#'  Klein, M., Moura, R. and Sinha, B. (2021). Multivariate Normal Inference based on Singly Imputed Synthetic Data under Plug-in Sampling. Sankhya B 83, 273–287.
+#'
 #' @importFrom MASS mvrnorm
 #' @importFrom stats var
 #' @examples
@@ -35,6 +37,7 @@
 #' @export
 
 simSynthData <- function(X, n_imp = dim(X)[1]){
+  X <- as.matrix(X)
   mean_X <- colMeans(X)
   S_X <- t(X - mean_X) %*% (X - mean_X)
   V <- MASS::mvrnorm(n_imp, mean_X, var(X) * dim(X)[1]/ (dim(X)[1] - 1))
