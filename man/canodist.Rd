@@ -92,7 +92,9 @@ q95 <- quantile(T4, 0.95)
 T4_obs > q95 #False means that we don't have statistical evidences to reject Delta0
 print(T4_obs)
 print(q95)
-# When the observed value is smaller than the 95\% quantile, we don't have statistical evidences to reject the Sphericity property
+# When the observed value is smaller than the 95\% quantile,
+# we don't have statistical evidences to reject the Sphericity property.
+#
 # Note that the value is very close to zero
 }
 \references{

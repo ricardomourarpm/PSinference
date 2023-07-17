@@ -4,14 +4,14 @@
 \alias{partition}
 \title{Split a matrix into blocks}
 \usage{
-partition(mat, nrows, ncols)
+partition(Matrix, nrows, ncols)
 }
 \arguments{
+\item{Matrix}{a matrix to split .}
+
 \item{nrows}{positive integer indicating the number of rows blocks.}
 
 \item{ncols}{positive integer indicating the number of columns blocks.}
-
-\item{Matrix}{a matrix to split .}
 }
 \description{
 This function Split a matrix into a list of blocks (either by rows and  columns).

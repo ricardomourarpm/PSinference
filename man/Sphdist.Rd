@@ -73,7 +73,9 @@ T_obs = (det(S_star)^(1/p))/(sum(diag(S_star))/p)
 print(q95)
 print(T_obs)
 
-#Since the observed value is bigger than the 95\% quantile, we don't have statistical evidences to reject the Sphericity property
+#Since the observed value is bigger than the 95\% quantile,
+#we don't have statistical evidences to reject the Sphericity property.
+#
 #Note that the value is very close to one
 }
 \references{
