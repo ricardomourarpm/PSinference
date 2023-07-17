@@ -20,18 +20,20 @@ variable that can be used to perform the Sphericity test of the population covar
 \eqn{\boldsymbol{\Sigma}} that is \eqn{\boldsymbol{\Sigma} = \sigma^2 I_p},
 based on the released Single Synthetic data generated under Plug-in Sampling,
 assuming that the original dataset is normally distributed.
+}
+\details{
 We define
 \deqn{T_2^\star = \frac{|\boldsymbol{S}^{\star}|^{\frac{1}{p}}}{tr(\boldsymbol{S}^{\star})/p}}
 where \eqn{\boldsymbol{S}^\star = \sum_{i=1}^n (v_i - \bar{v})(v_i - \bar{v})^{\top}},
 \eqn{v_i} is the \eqn{i}th observation of the synthetic dataset.
-For \eqn{\boldsymbol{\Sigma} = \sigma^2 I_p}, its distribution is
+For \eqn{\boldsymbol{\Sigma} = \sigma^2 \mathbf{I}_p}, its distribution is
 stochastic equivalent to
 \deqn{\frac{|\boldsymbol{\Omega}_{1}\boldsymbol{\Omega}_{2}|^{\frac{1}{p}}}{tr(\boldsymbol{\Omega}_{1}\boldsymbol{\Omega}_{2})/p}}
 where \eqn{\boldsymbol{\Omega}_1} and \eqn{\boldsymbol{\Omega}_2} are
 Wishart random variables,
-\eqn{\boldsymbol{\Omega}_1 \sim \mathcal{W}_p(n-1, \frac{I_p}{n-1})}
-is independent of \eqn{\boldsymbol{\Omega}_2 \sim \mathcal{W}_p(n-1, I_p)}.
-To test \eqn{\mathcal{H}_0: \boldsymbol{\Sigma} = \sigma^2 I_p}, compute the observed value of
+\eqn{\boldsymbol{\Omega}_1 \sim \mathcal{W}_p(n-1, \frac{\mathbf{I}_p}{n-1})}
+is independent of \eqn{\boldsymbol{\Omega}_2 \sim \mathcal{W}_p(n-1, \mathbf{I}_p)}.
+To test \eqn{\mathcal{H}_0: \boldsymbol{\Sigma} = \sigma^2 \mathbf{I}_p}, compute the observed value of
 \eqn{T_{2}^\star}, \eqn{\widetilde{T_{2}^\star}},  with the observed values
 and reject the null hypothesis if
 \eqn{\widetilde{T_{2}^\star}>t^\star_{2,\alpha}}
