@@ -1,6 +1,12 @@
 #' Plug-in Sampling Single Synthetic Dataset Generation
 #'
-#' This function calculates
+#' This function is used to generate a single synthetic version of the original data via Plug-in Sampling.
+#'
+#' Assume that \eqn{\mathbf{X}=\left(\mathbf{x}_1, \dots, \mathbf{x}_n\right)} is the original data, assumed to be normally distributed,
+#' we compute \eqn{\bar{\mathbf{x}}} as the sample mean and \eqn{\hat{\boldsymbol{\Sigma}}=\mathbf{S}/(n-1)} as the sample covariance matrix,
+#' where \eqn{\mathbf{S}} is the sample Wishart matrix.
+#' We generate \eqn{\mathbf{V}=\left(\mathbf{v}_1, \dots, \mathbf{v}_n\right)}, by drawing
+#' \deqn{\mathbf{v}_i\stackrel{i.i.d.}{\sim}N_p(\bar{\mathbf{x}},\hat{\boldsymbol{\Sigma}}).}
 #'
 #' @param X kjk
 #' @param n_imp xx
@@ -11,7 +17,7 @@
 #' @importFrom stats var
 #' @examples
 #' library(MASS)
-#' n_sample = 100
+#' n_sample = 1000
 #' mu=c(0,0,0,0)
 #' Sigma=diag(1,4,4)
 #' # Create original simulated dataset
