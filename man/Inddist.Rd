@@ -18,11 +18,14 @@ Inddist(part, nsample, pvariates, iterations)
 \description{
 This function calculates the empirical distribution of the pivotal random
 variable that can be used to perform inferential procedures and
-test the independence of two subsets of variables on the other based on the
+test the independence of two subsets of variables based on the
 released Single Synthetic data generated under Plug-in Sampling, assuming
-that the original dataset is normally distributed. We define
+that the original dataset is normally distributed.
+}
+\details{
+We define
 \deqn{T_3^\star =
-\frac{(|\boldsymbol{S}^{\star}|}
+\frac{|\boldsymbol{S}^{\star}|}
 {|\boldsymbol{S}^{\star}_{11}||\boldsymbol{S}^{\star}_{22}|}}
 where \eqn{\boldsymbol{S}^\star = \sum_{i=1}^n (v_i - \bar{v})(v_i - \bar{v})^{\top}},
 \eqn{v_i} is the \eqn{i}th observation of the synthetic dataset,
@@ -34,32 +37,32 @@ considering \eqn{\boldsymbol{S}^\star} partitioned as
 Under the assumption that \eqn{\boldsymbol{\Sigma}_{12} = \boldsymbol{0}},
 its distribution is stochastic equivalent to
 \deqn{\frac{|\boldsymbol{\Omega}|}{|\boldsymbol{\Omega}_{11}||\boldsymbol{\Omega}_{22}|}}
-where \eqn{\boldsymbol{\Omega}} are all independent Wishart random variables,
-\eqn{\boldsymbol{\Omega} \sim \mathcal{W}_p(n-1, \frac{\boldsymbol{W}}{n-1})}
-where
+where \eqn{\boldsymbol{\Omega} \sim \mathcal{W}_p(n-1, \frac{\boldsymbol{W}}{n-1})},
 \eqn{\boldsymbol{W} \sim \mathcal{W}_p(n-1, I_p)} and
 \eqn{\boldsymbol{\Omega}} partitioned in the same way as
 \eqn{\boldsymbol{S}^{\star}}.
 To test \eqn{\mathcal{H}_0: \boldsymbol{\Sigma}_{12} = \boldsymbol{0}},
 compute the value of \eqn{T_{3}^\star}, \eqn{\widetilde{T_{3}^\star}},
 with the observed values and reject the null hypothesis if
-\eqn{\widetilde{T_{3}^\star}>t^\star_{3,\alpha}} for
+\eqn{\widetilde{T_{3}^\star}<t^\star_{3,\alpha}} for
 \eqn{\alpha}-significance level, where \eqn{t^\star_{3,\gamma}} is the
 \eqn{\gamma}th percentile of \eqn{T_3^\star}.
 }
 \examples{
+#generate original data with two independent subsets of variables
 library(MASS)
 n_sample = 100
 p = 4
 mu <- c(1,2,3,4)
-Sigma = matrix(c(1,0.5,0,0,
-                  0.5,2,0,0,
-                  0,0,3,0.2,
-                  0, 0, 0.2,4), nr = 4, nc = 4, byrow = TRUE)
-seed = 1
+Sigma = matrix(c(1,   0.5,   0,     0,
+                 0.5,   2,   0,     0,
+                 0,     0,   3,   0.2,
+                 0,     0,   0.2,   4), nr = 4, nc = 4, byrow = TRUE)
 df = mvrnorm(n_sample, mu = mu, Sigma = Sigma)
+# generate synthetic data
 df_s = simSynthData(df)
 
+#Decompose Sstar in 4 parts
 part = 2
 
 Sstar = cov(df_s)
@@ -68,15 +71,19 @@ Sstar_12 = partition(Sstar,nrows = part, ncol = part)[[2]]
 Sstar_21 = partition(Sstar,nrows = part, ncol = part)[[3]]
 Sstar_22 = partition(Sstar,nrows = part, ncol = part)[[4]]
 
-T3_star = det(Sstar)/(det(Sstar_11)*det(Sstar_22))
+#Compute observed T3_star
+T3_obs = det(Sstar)/(det(Sstar_11)*det(Sstar_22))
 
 alpha = 0.05
-T3 <- Inddist(part = part, nsample = n_sample, pvariates = p, iterations = 1000)
-q005 <- quantile(T3, alpha)
 
-T3_star < q005 #False means Delta != Delta0
+# colect the quantile from the distribution assuming independence between the two subsets
+T3 <- Inddist(part = part, nsample = n_sample, pvariates = p, iterations = 10000)
+q5 <- quantile(T3, alpha)
 
-
+T3_obs < q005 #False means that we don't have statistical evidences to reject independence
+print(T3_star)
+print(q5)
+# Note that the value of the observed T3_obs is close to one as expected
 }
 \references{
 Klein, M., Moura, R. and Sinha, B. (2021). Multivariate Normal Inference based on Singly Imputed Synthetic Data under Plug-in Sampling. Sankhya B 83, 273–287.

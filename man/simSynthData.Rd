@@ -24,7 +24,7 @@ We generate \eqn{\mathbf{V}=\left(\mathbf{v}_1, \dots, \mathbf{v}_n\right)}, by 
 }
 \examples{
 library(MASS)
-n_sample = 100
+n_sample = 1000
 mu=c(0,0,0,0)
 Sigma=diag(1,4,4)
 # Create original simulated dataset
