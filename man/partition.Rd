@@ -14,7 +14,7 @@ partition(Matrix, nrows, ncols)
 \item{ncols}{positive integer indicating the number of columns blocks.}
 }
 \value{
-a list of partitioned matrix
+a list of partitioned submatrices
 }
 \description{
 This function Split a matrix into a list of blocks (either by rows and  columns).
