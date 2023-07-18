@@ -12,6 +12,8 @@
 #' @param X matrix or dataframe
 #' @param n_imp sample size
 #'
+#' @return a matrix of generated dataset
+#'
 #' @references
 #'  Klein, M., Moura, R. and Sinha, B. (2021). Multivariate Normal Inference based on Singly Imputed Synthetic Data under Plug-in Sampling. Sankhya B 83, 273–287.
 #'

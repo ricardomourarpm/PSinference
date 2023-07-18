@@ -6,7 +6,7 @@
 #' @param nrows positive integer indicating the number of rows blocks.
 #' @param ncols positive integer indicating the number of columns blocks.
 #'
-#'
+#' @return a list of partitioned matrix
 #' @examples
 #' df = matrix(c(1,0.5,0,0,
 #'                   0.5,2,0,0,

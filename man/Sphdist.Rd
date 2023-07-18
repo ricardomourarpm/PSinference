@@ -14,6 +14,9 @@ Sphdist(nsample, pvariates, iterations)
 \item{iterations}{Number of iterations for simulating values from the
 distribution and finding the quantiles. Default is \code{10000}.}
 }
+\value{
+a vector of length \code{iterations} that recorded the empirical distribution's values.
+}
 \description{
 This function calculates the empirical distribution of the pivotal random
 variable that can be used to perform the Sphericity test of the population covariance matrix

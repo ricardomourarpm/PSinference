@@ -11,6 +11,9 @@ simSynthData(X, n_imp = dim(X)[1])
 
 \item{n_imp}{sample size}
 }
+\value{
+a matrix of generated dataset
+}
 \description{
 This function is used to generate a single synthetic version of the original data via Plug-in Sampling.
 }

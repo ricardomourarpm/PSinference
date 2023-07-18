@@ -29,6 +29,8 @@
 #' @param iterations Number of iterations for simulating values from the
 #'  distribution and finding the quantiles. Default is \code{10000}.
 #'
+#' @return a vector of length \code{iterations} that recorded the empirical distribution's values.
+#'
 #' @references
 #' Klein, M., Moura, R. and Sinha, B. (2021). Multivariate Normal Inference based on Singly Imputed Synthetic Data under Plug-in Sampling. Sankhya B 83, 273–287.
 #' @importFrom stats rWishart
