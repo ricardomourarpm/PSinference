@@ -1,4 +1,4 @@
-#PSinference
+# PSinference
 ======================
 
 The R package *PSinference* provides inference procedures including the generalized variance, the sphericity test, the test for independence between two subsets of variables, and the test for the regression of one set of variables on the other, when considering the singly imputed synthetic data generated via plug-in sampling under the multivariate normal model. For more details see Klein et al. (2021) <doi:10.1007/s13571-019-00215-9>.
