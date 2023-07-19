@@ -1,4 +1,4 @@
-# PSinference <img src="man/figures/logo1.png" align="right" width="300" height="300" />
+# PSinference <img src="man/figures/logo1.png" align="right" width="270" height="270" />
 
 
 [![R-CMD-check](https://github.com/dmazarei/PLSV/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/dmazarei/PLSV/actions/workflows/R-CMD-check.yaml)
