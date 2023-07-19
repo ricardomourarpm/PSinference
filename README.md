@@ -1,7 +1,7 @@
 # PSinference
 
 [![R-CMD-check](https://github.com/dmazarei/PLSV/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/dmazarei/PLSV/actions/workflows/R-CMD-check.yaml)
-[![CRAN_Status_Badge](https://cranlogs.r-pkg.org/badges/PSinference)](https://cran.r-project.org/package=PSinference)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/PSinference)](https://cran.r-project.org/package=PSinference)
 [![Downloads per month](https://cranlogs.r-pkg.org/badges/PSinference)](https://cran.r-project.org/package=PSinference)
 [![Total Downloads](https://cranlogs.r-pkg.org/badges/grand-total/PSinference)](https://cran.r-project.org/package=PSinference)
 [![License](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
