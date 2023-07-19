@@ -1,4 +1,4 @@
-# PSinference
+# PSinference <img src="man/figures/logo.png" align="right" />
 
 [![R-CMD-check](https://github.com/dmazarei/PLSV/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/dmazarei/PLSV/actions/workflows/R-CMD-check.yaml)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/PSinference)](https://cran.r-project.org/package=PSinference)
