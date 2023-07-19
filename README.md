@@ -1,6 +1,6 @@
 # PSinference
 
-[![R-CMD-check](https://github.com/ricardomourarpm/PSinference/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ricardomourarpm/PSinference/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/dmazarei/PLSV/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/dmazarei/PLSV/actions/workflows/R-CMD-check.yaml)
 [![CRAN_Status_Badge](https://cran.r-project.org/package=PSinference)](https://cran.r-project.org/package=PSinference)
 [![Downloads per month](https://cranlogs.r-pkg.org/badges/PSinference)](https://cran.r-project.org/package=PSinference)
 [![Total Downloads](https://cranlogs.r-pkg.org/badges/grand-total/PSinference)](https://cran.r-project.org/package=PSinference)
