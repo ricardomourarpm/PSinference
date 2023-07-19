@@ -6,7 +6,7 @@
 [![Total Downloads](https://cranlogs.r-pkg.org/badges/grand-total/PSinference)](https://cran.r-project.org/package=PSinference)
 [![License](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
-The R package *PSinference* provides inference procedures including the generalized variance, the sphericity test, the test for independence between two subsets of variables, and the test for the regression of one set of variables on the other, when considering the singly imputed synthetic data generated via plug-in sampling under the multivariate normal model. For more details see Klein et al. (2021) <doi:10.1007/s13571-019-00215-9>.
+The R package *PSinference* provides inference procedures including the generalized variance, the sphericity test, the test for independence between two subsets of variables, and the test for the regression of one set of variables on the other, when considering the singly imputed synthetic data generated via plug-in sampling under the multivariate normal model. For more details see Klein et al. (2021) 
 
 This work is funded by national funds through the FCT - Fundação para a Ciência e a Tecnologia, I.P., under the scope of the projects UIDB/00297/2020 and UIDP/00297/2020 (Center for Mathematics and Applications)".
 
