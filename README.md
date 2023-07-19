@@ -1,5 +1,5 @@
 # PSinference
-======================
+
 [![R-CMD-check](https://github.com/ricardomourarpm/PSinference/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ricardomourarpm/PSinference/actions/workflows/R-CMD-check.yaml)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/PSinference)](https://cran.r-project.org/package=PSinference)
 [![Downloads per month](https://cranlogs.r-pkg.org/badges/PSinference)](https://cran.r-project.org/package=PSinference)
