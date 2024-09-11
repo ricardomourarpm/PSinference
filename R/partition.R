@@ -1,6 +1,6 @@
 #' Split a matrix into blocks
 #'
-#' This function Split a matrix into a list of blocks (either by rows and  columns).
+#' This function split a matrix into a list of blocks (either by rows and columns).
 #'
 #' @param Matrix a matrix to split .
 #' @param nrows positive integer indicating the number of rows blocks.
