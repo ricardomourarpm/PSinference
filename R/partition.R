@@ -8,11 +8,11 @@
 #'
 #' @return a list of partitioned submatrices
 #' @examples
-#' df = matrix(c(1,0.5,0,0,
+#' Mat = matrix(c(1,0.5,0,0,
 #'                   0.5,2,0,0,
 #'                   0,0,3,0.2,
-#'                   0, 0, 0.2,4), nr = 4, nc = 4, byrow = TRUE)
-#' partition(df,2,2)
+#'                   0, 0, 0.2,4), nrow = 4, ncol = 4, byrow = TRUE)
+#' partition(Mat,2,2)
 #' @export
 
 partition <- function(Matrix, nrows, ncols) {
