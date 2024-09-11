@@ -12,7 +12,7 @@
 #'                   0.5,2,0,0,
 #'                   0,0,3,0.2,
 #'                   0, 0, 0.2,4), nrow = 4, ncol = 4, byrow = TRUE)
-#' partition(Mat,2,2)
+#' partition(Matrix = Mat, nrows = 2, ncols = 2)
 #' @export
 
 partition <- function(Matrix, nrows, ncols) {
