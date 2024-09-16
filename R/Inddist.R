@@ -32,7 +32,7 @@
 #' \eqn{\gamma}th percentile of \eqn{T_3^\star}.
 #'
 #'
-#' @param part Number of partitions.
+#' @param part Number of variables in the first subset.
 #' @param nsample Sample size.
 #' @param pvariates Number of variables.
 #' @param iterations Number of iterations for simulating values from the distribution and finding the quantiles. Default is \code{10000}.
