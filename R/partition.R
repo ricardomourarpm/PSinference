@@ -16,7 +16,7 @@
 #' @export
 
 partition <- function(Matrix, nrows, ncols) {
-  # split matrix into submatrices
+  # split the matrix into submatrices
   r <- dim(Matrix)[1]
   c <- dim(Matrix)[2]
   if (r < nrows & c < ncols) {
