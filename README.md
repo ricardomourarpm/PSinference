@@ -1,7 +1,7 @@
 # PSinference <img src="man/figures/logo2.png" align="right" width="15%" />
 
 
-[![R-CMD-check](https://github.com/dmazarei/PLSV/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/dmazarei/PLSV/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/ricardomourarpm/PSinference/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ricardomourarpm/PSinference/actions/workflows/R-CMD-check.yaml)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/PSinference)](https://cran.r-project.org/package=PSinference)
 [![Last week Downloads](https://cranlogs.r-pkg.org/badges/last-week/PSinference)](https://cran.r-project.org/package=PSinference)
 [![Downloads per month](https://cranlogs.r-pkg.org/badges/PSinference)](https://cran.r-project.org/package=PSinference)
