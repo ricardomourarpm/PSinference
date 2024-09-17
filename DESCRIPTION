@@ -16,3 +16,4 @@ Imports: MASS, stats
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.3.2
+BugReports: https://github.com/ricardomourarpm/PSinference/issues
