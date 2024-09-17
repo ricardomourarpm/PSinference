@@ -56,7 +56,7 @@ n_sample = 100
 # Create original simulated dataset
 df = mvrnorm(n_sample, mu = mu, Sigma = Sigma)
 
-# Sinthetic data created
+# Synthetic data created
 
 df_s = simSynthData(df)
 

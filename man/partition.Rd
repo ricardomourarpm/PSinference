@@ -17,12 +17,12 @@ partition(Matrix, nrows, ncols)
 a list of partitioned submatrices
 }
 \description{
-This function Split a matrix into a list of blocks (either by rows and  columns).
+This function split a matrix into a list of blocks (either by rows and columns).
 }
 \examples{
-df = matrix(c(1,0.5,0,0,
+Mat = matrix(c(1,0.5,0,0,
                   0.5,2,0,0,
                   0,0,3,0.2,
-                  0, 0, 0.2,4), nr = 4, nc = 4, byrow = TRUE)
-partition(df,2,2)
+                  0, 0, 0.2,4), nrow = 4, ncol = 4, byrow = TRUE)
+partition(Matrix = Mat, nrows = 2, ncols = 2)
 }

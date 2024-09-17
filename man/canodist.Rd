@@ -7,7 +7,7 @@
 canodist(part, nsample, pvariates, iterations)
 }
 \arguments{
-\item{part}{Number of partitions.}
+\item{part}{Number of variables in the first subset.}
 
 \item{nsample}{Sample size.}
 
