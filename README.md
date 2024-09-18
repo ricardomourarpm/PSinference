@@ -29,16 +29,16 @@ remotes::install_github("ricardomourarpm/PSinference")
 ```
 
 ## To cite package `PSinference` in publications use:
-   Moura R, Norouzirad M, Mazarei D (2023). _PSinference: Inference for Released Plug-in Sampling Single Synthetic Dataset_. R package version 1.0.0,
+   Moura R, Norouzirad M, Augusto V, Fonseca M (2024). _PSinference: Inference for Released Plug-in Sampling Single Synthetic Dataset_. R package version 0.2.1,
   <https://cran.r-project.org/package=PSinference>.
 
 A BibTeX entry for LaTeX users is
 
   @Manual{PSinference,
     title = {PSinference: Inference for Released Plug-in Sampling Single Synthetic Dataset},
-    author = {Ricardo Moura and Mina Norouzirad and Danial Mazarei},
-    year = {2023},
-    note = {R package version 1.0.0},
+    author = {Ricardo Moura and Mina Norouzirad and Vítor Augusto and Miguel Fonseca},
+    year = {2024},
+    note = {R package version 0.2.1},
     url = {https://cran.r-project.org/package=PSinference}
   }
 
