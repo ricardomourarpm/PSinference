@@ -80,6 +80,6 @@ Sphdist <- function(nsample, pvariates, iterations) {
   W2 <- stats::rWishart(iterations, nsample - 1, diag(pvariates))
   for (i in 1:iterations) {
     inner_prod <- crossprod(W1[,,i], W2[,,i])
-    T[i] <- det(inner_prod)^(1/pvariates) / sum(inner_prod)  }
+    T[i] <- det(inner_prod)^(1/pvariates) / sum(diag(inner_prod))  }
   return(T)
 }
