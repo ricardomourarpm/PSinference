@@ -41,7 +41,8 @@
 simSynthData <- function(X, n_imp = dim(X)[1]){
   X <- as.matrix(X)
   mean_X <- colMeans(X)
-  S_X <- t(X - mean_X) %*% (X - mean_X)
-  V <- MASS::mvrnorm(n_imp, mean_X, S_X / (dim(X)[1] - 1))
+  MEAN_X<-matrix(mean_X,n_imp,dim(X)[2],byrow = TRUE)
+  S_X <- t(X - MEAN_X) %*% (X - MEAN_X)
+  V <- MASS::mvrnorm(n_imp, mean_X, S_X / (n_imp - 1))
   return (V)
 }
