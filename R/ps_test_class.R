@@ -113,10 +113,10 @@ new_ps_test <- function(statistic,
 #' @exportS3Method print ps_test
 #'
 #' @examples
-#' data(ps_attitude)
+#' data(brittany_soil_ps)
 #'
 #' set.seed(1)
-#' V <- simSynthData(ps_attitude, M = 3)
+#' V <- simSynthData(brittany_soil_ps, M = 3)
 #'
 #' \donttest{
 #' res <- sphericity_test(V, M = 3, iterations = 1000L)
@@ -271,8 +271,8 @@ summary.ps_test <- function(object, ...) {
 #' @exportS3Method plot ps_test
 #'
 #' @examples
-#' data(ps_attitude)
-#' V <- simSynthData(ps_attitude, M = 3)
+#' data(brittany_soil_ps)
+#' V <- simSynthData(brittany_soil_ps, M = 3)
 #' plot(sphericity_test(V, M = 3))
 plot.ps_test <- function(x,
                          main = NULL,
@@ -601,10 +601,10 @@ plot.ps_test <- function(x,
 #' @export
 #'
 #' @examples
-#' data(ps_attitude)
+#' data(brittany_soil_ps)
 #'
 #' set.seed(1)
-#' V <- simSynthData(ps_attitude, M = 3)
+#' V <- simSynthData(brittany_soil_ps, M = 3)
 #'
 #' \donttest{
 #' res <- sphericity_test(V, M = 3, iterations = 1000L)
