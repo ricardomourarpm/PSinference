@@ -1,7 +1,7 @@
 Package: PSinference 
 Type: Package
 Title: Inference for Released Plug-in Sampling Synthetic Dataset
-Version: 1.0.0
+Version: 0.2.1
 Authors@R: c(
     person("Vítor", "Augusto", email = "va.augusto@campus.fct.unl.pt", role = "aut", comment = c(ORCID = "0009-0004-9003-3558")),
     person("Mina", "Norouzirad", email = "mina.norouzirad@gmail.com", role = "aut" ,comment = c(ORCID = "0000-0003-0311-6888")),
