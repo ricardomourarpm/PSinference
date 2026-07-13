@@ -1,0 +1,122 @@
+#' @title Generate Plug-in Sampling Synthetic Data Sets
+#'
+#' @description
+#' Generates \eqn{M \geq 1} independent fully synthetic data sets from an
+#' original numeric matrix \code{X} using the plug-in sampling (PS)
+#' mechanism under a multivariate normal model. The synthetic observations
+#' are returned as a single stacked \eqn{Mn \times p} matrix.
+#'
+#' The unknown population parameters \eqn{\boldsymbol{\mu}} and
+#' \eqn{\boldsymbol{\Sigma}} are replaced by the sample mean
+#' \eqn{\bar{\mathbf{x}}} and sample covariance matrix
+#' \eqn{\hat{\boldsymbol{\Sigma}}}. Then \eqn{Mn} synthetic observations
+#' are drawn independently from
+#' \eqn{\mathcal{N}_p(\bar{\mathbf{x}}, \hat{\boldsymbol{\Sigma}})}.
+#'
+#' Setting \code{M = 1} produces a single synthetic data set of size
+#' \eqn{n}, corresponding to the classical single-release PS procedure of
+#' Klein et al. (2021). Setting \code{M > 1} produces the stacked data set
+#' \eqn{\mathbf{V}_{\mathrm{complete}}} used by the multiple-release
+#' procedures:
+#' \deqn{
+#'   \mathbf{V}_{\mathrm{complete}} =
+#'   \begin{pmatrix}
+#'   \mathbf{V}_1 \\
+#'   \vdots \\
+#'   \mathbf{V}_M
+#'   \end{pmatrix}
+#'   \in \mathbb{R}^{Mn \times p}.
+#' }
+#'
+#' @param X A numeric matrix or data frame containing the original
+#'   confidential observations. Rows are observations and columns are
+#'   variables. The input must have dimension \eqn{n \times p} with
+#'   \eqn{n > p}.
+#' @param M A positive integer giving the number of independent synthetic
+#'   releases to generate. The default is \code{1L}. The returned matrix
+#'   has \eqn{Mn} rows.
+#'
+#' @return
+#' An \eqn{Mn \times p} numeric matrix. Column names are preserved from
+#' \code{X}. For \code{M = 1}, row names are preserved from \code{X} when
+#' available. For \code{M > 1}, row names encode the release index and
+#' observation index using the form \code{"release_j.obs_i"}.
+#'
+#' @details
+#' The stacked representation is statistically justified because all
+#' \eqn{Mn} rows are conditionally independent and identically distributed
+#' given the original data. Thus, the stacked sufficient statistic
+#' \eqn{\mathbf{S}^\star_{\mathrm{M}}} satisfies
+#' \deqn{
+#'   (n - 1)\mathbf{S}^\star_{\mathrm{M}} \mid \mathbf{S}
+#'   \sim
+#'   \mathcal{W}_p\!\left(
+#'     \mathbf{S},\;
+#'     Mn - 1
+#'   \right).
+#' }
+#'
+#' @seealso
+#' \code{\link{ps_test}},
+#' \code{\link{gv_test}},
+#' \code{\link{sphericity_test}},
+#' \code{\link{independence_test}},
+#' \code{\link{regression_test}}
+#'
+#' @references
+#' Klein, M., Moura, R., and Sinha, B. (2021). Multivariate normal
+#' inference based on singly imputed synthetic data under plug-in
+#' sampling. \emph{Sankhya B}, \strong{83}, 273--287.
+#' \doi{10.1007/s13571-019-00215-9}
+#'
+#' @export
+#'
+#' @examples
+#' data(attitude)
+#'
+#' # Single release: M = 1
+#' set.seed(1)
+#' V1 <- simSynthData(attitude)
+#' dim(V1)
+#'
+#' # Five releases stacked row-wise
+#' set.seed(1)
+#' V5 <- simSynthData(attitude, M = 5)
+#' dim(V5)
+#'
+simSynthData <- function(X, M = 1L) {
+  X <- .validate_X(X)
+  M <- .validate_M(M)
+
+  n <- nrow(X)
+
+  xbar <- colMeans(X)
+  Sigma <- stats::cov(X)
+
+  .check_pd(Sigma, "sample covariance matrix of X")
+
+  if (M == 1L) {
+    V <- MASS::mvrnorm(n = n, mu = xbar, Sigma = Sigma)
+    V <- as.matrix(V)
+
+    colnames(V) <- colnames(X)
+
+    if (!is.null(rownames(X))) {
+      rownames(V) <- rownames(X)
+    }
+
+    return(V)
+  }
+
+  V_list <- lapply(seq_len(M), function(j) {
+    Vj <- MASS::mvrnorm(n = n, mu = xbar, Sigma = Sigma)
+    Vj <- as.matrix(Vj)
+
+    colnames(Vj) <- colnames(X)
+    rownames(Vj) <- paste0("release_", j, ".obs_", seq_len(n))
+
+    Vj
+  })
+
+  do.call(rbind, V_list)
+}

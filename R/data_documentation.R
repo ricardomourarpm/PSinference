@@ -1,0 +1,107 @@
+#' @title Brittany Loess-Soil Physicochemical Properties
+#'
+#' @description
+#' Standardized physicochemical measurements from 37 cultivated fields on
+#' loess-silt parent material in Brittany, France, derived from Morvan
+#' et al. (2023). The dataset provides a realistic statistical disclosure
+#' control (SDC) example with \eqn{p = 6} variables arranged in two natural
+#' blocks of size \eqn{p_1 = p_2 = 3}.
+#'
+#' The first block contains standard agronomic indicators that are treated
+#' as public variables. The second block contains farm-management indicators
+#' that are treated as sensitive variables and are therefore suitable for
+#' illustrating plug-in sampling (PS) synthetic data releases.
+#'
+#' @format
+#' A numeric matrix with 37 rows and 6 columns. All variables are
+#' standardized to mean zero and standard deviation one:
+#' \describe{
+#'   \item{pH_water}{Soil pH measured in water suspension.}
+#'   \item{pH_KCl}{Soil pH measured in 1 M KCl suspension.}
+#'   \item{log_CEC_Metson}{Log cation exchange capacity, Metson method
+#'     (log meq per 100 g soil).}
+#'   \item{log_Organic_C}{Log soil organic carbon (log g/kg).}
+#'   \item{log_Total_N}{Log total soil nitrogen (log g/kg).}
+#'   \item{log_P_Olsen}{Log Olsen-P available phosphorus
+#'     (log g P2O5/kg).}
+#' }
+#'
+#' @details
+#' The full dataset from Morvan et al. (2023) contains 137 fields across
+#' three parent-material types. This version retains only the most frequent
+#' parent-material group, loess-silt.
+#'
+#' Variables with approximately log-normal distributions, namely
+#' cation exchange capacity, organic carbon, total nitrogen, and Olsen-P,
+#' were log-transformed. Mahalanobis outliers were removed using the
+#' \eqn{\chi^2_{6, 0.975}} cutoff. The retained variables were then
+#' standardized.
+#'
+#' For illustrative SDC purposes, the variables are partitioned into two
+#' blocks:
+#' \describe{
+#'   \item{Public block}{
+#'     \code{pH_water}, \code{pH_KCl}, and \code{log_CEC_Metson}.
+#'   }
+#'   \item{Sensitive block}{
+#'     \code{log_Organic_C}, \code{log_Total_N}, and \code{log_P_Olsen}.
+#'   }
+#' }
+#'
+#' This block structure is useful for illustrating independence,
+#' regression, and covariance-based inference when one block is released
+#' as observed data and the other block is released through PS synthetic
+#' draws.
+#'
+#' Normality was assessed using the diagnostics implemented in
+#' \code{\link{mvn_test}}. None of the retained diagnostics rejected
+#' multivariate normality at the 5\% level.
+#'
+#' @source
+#' Morvan, T., Lambert, Y., Germain, P., Lemercier, B., Moreira, M.,
+#' and Beff, L. (2023). A dataset of physico-chemical properties,
+#' extractable organic N, N mineralisation and physical organic matter
+#' fractionation of soils. \emph{Data in Brief}, \strong{51}, 109776.
+#' \doi{10.1016/j.dib.2023.109776}
+#'
+#' Data repository, licensed under CC BY 4.0:
+#' \doi{10.57745/DGIPGR}
+#'
+#' @seealso
+#' \code{\link{mvn_test}},
+#' \code{\link{simSynthData}},
+#' \code{\link{ps_test}},
+#' \code{\link{independence_test}},
+#' \code{\link{regression_test}}
+#'
+#' @examples
+#' data(brittany_soil_ps)
+#'
+#' dim(brittany_soil_ps)
+#' colnames(brittany_soil_ps)
+#'
+#' # Public and sensitive blocks
+#' public_block <- c("pH_water", "pH_KCl", "log_CEC_Metson")
+#' sensitive_block <- c("log_Organic_C", "log_Total_N", "log_P_Olsen")
+#'
+#' \donttest{
+#' # Check multivariate normality
+#' mvn_test(brittany_soil_ps, hz_nsim = 500, plot = FALSE)
+#'
+#' # Generate three PS synthetic releases
+#' set.seed(1)
+#' V3 <- simSynthData(brittany_soil_ps, M = 3)
+#'
+#' # Test independence between the public and sensitive blocks
+#' independence_test(
+#'   V3,
+#'   M = 3,
+#'   group_a = public_block,
+#'   group_b = sensitive_block,
+#'   iterations = 500L
+#' )
+#' }
+#'
+#' @docType data
+#' @keywords datasets
+"brittany_soil_ps"
