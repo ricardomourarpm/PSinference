@@ -38,10 +38,10 @@
 #' @export
 #'
 #' @examples
-#' data(attitude)
+#' data(brittany_soil_ps)
 #'
 #' set.seed(1)
-#' V <- simSynthData(attitude, M = 3)
+#' V <- simSynthData(brittany_soil_ps, M = 3)
 #'
 #' \donttest{
 #' # Run and print only
@@ -58,8 +58,8 @@
 #'   V,
 #'   M = 3,
 #'   test = "independence",
-#'   group_a = c("rating", "complaints"),
-#'   group_b = c("privileges", "learning"),
+#'   group_a = c("log_Organic_C", "log_Total_N", "log_P_Olsen"),
+#'   group_b = c("pH_water", "pH_KCl", "log_CEC_Metson"),
 #'   iterations = 1000L,
 #'   plot = TRUE
 #' )
@@ -69,7 +69,7 @@
 #'   V,
 #'   M = 3,
 #'   test = "gv",
-#'   Sigma = cov(attitude),
+#'   Sigma = cov(brittany_soil_ps),
 #'   iterations = 1000L,
 #'   plot = TRUE
 #' )
@@ -205,11 +205,11 @@ ps_test <- function(V,
 #' b2$D
 #'
 #' # Covariance matrix example
-#' data(attitude)
+#' data(brittany_soil_ps)
 #' b3 <- partition(
-#'   cov(attitude),
-#'   part1 = c("rating", "complaints", "raises"),
-#'   part2 = c("privileges", "learning", "advance", "critical")
+#'   cov(brittany_soil_ps),
+#'   part1 = c("log_Organic_C", "log_Total_N", "log_P_Olsen"),
+#'   part2 = c("pH_water", "pH_KCl", "log_CEC_Metson")
 #' )
 #' b3$A
 #' b3$D

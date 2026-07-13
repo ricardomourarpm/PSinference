@@ -33,10 +33,10 @@ synthetic data sets stacked into \code{V}. The test is left-tailed. Setting
 \code{M = 1} recovers the single-release procedure of Klein et al. (2021).
 }
 \examples{
-data(attitude)
+data(brittany_soil_ps)
 
 set.seed(1)
-V5 <- simSynthData(attitude, M = 5)
+V5 <- simSynthData(brittany_soil_ps, M = 5)
 
 \donttest{
 res <- sphericity_test(V5, M = 5, iterations = 1000L)

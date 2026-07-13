@@ -211,8 +211,8 @@ print.ps_test <- function(x, ...) {
 #' @exportS3Method summary ps_test
 #'
 #' @examples
-#' data(attitude)
-#' V <- simSynthData(attitude, M = 3)
+#' data(brittany_soil_ps)
+#' V <- simSynthData(brittany_soil_ps, M = 3)
 #' res <- sphericity_test(V, M = 3)
 #' summary(res)
 summary.ps_test <- function(object, ...) {

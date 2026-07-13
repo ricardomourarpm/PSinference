@@ -72,16 +72,16 @@
 #' @export
 #'
 #' @examples
-#' data(attitude)
+#' data(brittany_soil_ps)
 #'
 #' # Single release: M = 1
 #' set.seed(1)
-#' V1 <- simSynthData(attitude)
+#' V1 <- simSynthData(brittany_soil_ps)
 #' dim(V1)
 #'
 #' # Five releases stacked row-wise
 #' set.seed(1)
-#' V5 <- simSynthData(attitude, M = 5)
+#' V5 <- simSynthData(brittany_soil_ps, M = 5)
 #' dim(V5)
 #'
 simSynthData <- function(X, M = 1L) {

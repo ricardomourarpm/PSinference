@@ -19,8 +19,8 @@ Prints a detailed summary including the null-distribution quantiles
 and a comparison with the observed statistic.
 }
 \examples{
-data(attitude)
-V <- simSynthData(attitude, M = 3)
+data(brittany_soil_ps)
+V <- simSynthData(brittany_soil_ps, M = 3)
 res <- sphericity_test(V, M = 3)
 summary(res)
 }

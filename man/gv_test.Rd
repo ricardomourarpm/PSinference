@@ -39,23 +39,23 @@ synthetic data sets stacked into \code{V}. Setting \code{M = 1}
 recovers the single-release procedure of Klein et al. (2021).
 }
 \examples{
-data(attitude)
+data(brittany_soil_ps)
 
 set.seed(1)
-V1 <- simSynthData(attitude)
+V1 <- simSynthData(brittany_soil_ps)
 
 \donttest{
 res <- gv_test(V1,
-  M = 1, Sigma = cov(attitude),
+  M = 1, Sigma = cov(brittany_soil_ps),
   iterations = 1000L
 )
 print(res)
 plot(res)
 
 set.seed(1)
-V5 <- simSynthData(attitude, M = 5)
+V5 <- simSynthData(brittany_soil_ps, M = 5)
 res5 <- gv_test(V5,
-  M = 5, Sigma = cov(attitude),
+  M = 5, Sigma = cov(brittany_soil_ps),
   iterations = 1000L
 )
 

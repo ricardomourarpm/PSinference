@@ -65,10 +65,10 @@ The two variable blocks can be specified in exactly one of two ways:
 }
 }
 \examples{
-data(attitude)
+data(brittany_soil_ps)
 
 set.seed(1)
-V5 <- simSynthData(attitude, M = 5)
+V5 <- simSynthData(brittany_soil_ps, M = 5)
 
 \donttest{
 # Integer interface
@@ -78,8 +78,8 @@ independence_test(V5, M = 5, part = 2L, iterations = 1000L)
 independence_test(
   V5,
   M = 5,
-  group_a = c("rating", "complaints", "advance"),
-  group_b = c("privileges", "learning", "raises", "critical"),
+  group_a = c("pH_water", "pH_KCl", "log_CEC_Metson"),
+  group_b = c("log_Organic_C", "log_Total_N", "log_P_Olsen"),
   iterations = 1000L
 )
 }

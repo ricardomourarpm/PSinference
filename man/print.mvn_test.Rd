@@ -6,6 +6,14 @@
 \usage{
 \method{print}{mvn_test}(x, ...)
 }
+\arguments{
+\item{x}{An object of class \code{mvn_test}.}
+
+\item{...}{Further arguments (currently ignored).}
+}
+\value{
+Invisibly returns \code{x}.
+}
 \description{
-Print Method for \code{mvn_test} Objects
+Print the result of the test.
 }

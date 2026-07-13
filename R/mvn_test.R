@@ -138,17 +138,14 @@
 #'
 #' @seealso
 #' \code{\link{simSynthData}},
-#' \code{\link{ps_attitude}},
-#' \code{\link{ps_mtcars}}
+#' \code{\link{brittany_soil_ps}},
 #'
 #' @export
 #'
 #' @examples
-#' data(attitude)
-#' mvn_test(attitude)
-#'
-#' data(mtcars)
-#' mvn_test(mtcars)
+#' data(brittany_soil_ps)
+#' mvn_test(brittany_soil_ps)
+
 mvn_test <- function(X, alpha = 0.05,
                      plot = TRUE,
                      hz_nsim = 2000L,
@@ -546,7 +543,18 @@ mvn_test <- function(X, alpha = 0.05,
 }
 
 #' @title Print Method for \code{mvn_test} Objects
+#'
+#' @description
+#' Print the result of the test.
+#'
+#' @param x An object of class \code{mvn_test}.
+#' @param ... Further arguments (currently ignored).
+#'
+#' @return
+#' Invisibly returns \code{x}.
+#'
 #' @exportS3Method print mvn_test
+#'
 print.mvn_test <- function(x, ...) {
   cat(sprintf(
     "MVN Assessment: %s (n = %d, p = %d)\n",

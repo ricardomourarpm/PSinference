@@ -85,11 +85,11 @@ b2$A
 b2$D
 
 # Covariance matrix example
-data(attitude)
+data(brittany_soil_ps)
 b3 <- partition(
-  cov(attitude),
-  part1 = c("rating", "complaints", "raises"),
-  part2 = c("privileges", "learning", "advance", "critical")
+  cov(brittany_soil_ps),
+  part1 = c("log_Organic_C", "log_Total_N", "log_P_Olsen"),
+  part2 = c("pH_water", "pH_KCl", "log_CEC_Metson")
 )
 b3$A
 b3$D

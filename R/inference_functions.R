@@ -40,23 +40,23 @@
 #' @export
 #'
 #' @examples
-#' data(attitude)
+#' data(brittany_soil_ps)
 #'
 #' set.seed(1)
-#' V1 <- simSynthData(attitude)
+#' V1 <- simSynthData(brittany_soil_ps)
 #'
 #' \donttest{
 #' res <- gv_test(V1,
-#'   M = 1, Sigma = cov(attitude),
+#'   M = 1, Sigma = cov(brittany_soil_ps),
 #'   iterations = 1000L
 #' )
 #' print(res)
 #' plot(res)
 #'
 #' set.seed(1)
-#' V5 <- simSynthData(attitude, M = 5)
+#' V5 <- simSynthData(brittany_soil_ps, M = 5)
 #' res5 <- gv_test(V5,
-#'   M = 5, Sigma = cov(attitude),
+#'   M = 5, Sigma = cov(brittany_soil_ps),
 #'   iterations = 1000L
 #' )
 #'
@@ -220,10 +220,10 @@ gv_ci <- function(V, M = 1L, Sigma,
 #' @export
 #'
 #' @examples
-#' data(attitude)
+#' data(brittany_soil_ps)
 #'
 #' set.seed(1)
-#' V5 <- simSynthData(attitude, M = 5)
+#' V5 <- simSynthData(brittany_soil_ps, M = 5)
 #'
 #' \donttest{
 #' res <- sphericity_test(V5, M = 5, iterations = 1000L)
@@ -341,10 +341,10 @@ sphericity_test <- function(V, M = 1L,
 #' @export
 #'
 #' @examples
-#' data(attitude)
+#' data(brittany_soil_ps)
 #'
 #' set.seed(1)
-#' V5 <- simSynthData(attitude, M = 5)
+#' V5 <- simSynthData(brittany_soil_ps, M = 5)
 #'
 #' \donttest{
 #' # Integer interface
@@ -354,8 +354,8 @@ sphericity_test <- function(V, M = 1L,
 #' independence_test(
 #'   V5,
 #'   M = 5,
-#'   group_a = c("rating", "complaints", "advance"),
-#'   group_b = c("privileges", "learning", "raises", "critical"),
+#'   group_a = c("pH_water", "pH_KCl", "log_CEC_Metson"),
+#'   group_b = c("log_Organic_C", "log_Total_N", "log_P_Olsen"),
 #'   iterations = 1000L
 #' )
 #' }
@@ -503,19 +503,19 @@ independence_test <- function(V, M = 1L,
 #' @export
 #'
 #' @examples
-#' data(attitude)
+#' data(brittany_soil_ps)
 #'
 #' set.seed(1)
-#' V5 <- simSynthData(attitude, M = 5)
+#' V5 <- simSynthData(brittany_soil_ps, M = 5)
 #'
 #' \donttest{
 #' # Integer interface: zero regression
 #' regression_test(V5, M = 5, part = 2L, iterations = 1000L)
 #'
 #' # Named interface with Delta0 estimated from the original data
-#' S0 <- cov(attitude)
-#' response <- c("rating", "complaints", "advance")
-#' predictors <- c("privileges", "learning", "raises", "critical")
+#' S0 <- cov(brittany_soil_ps)
+#' response <- c("pH_water", "pH_KCl", "log_CEC_Metson")
+#' predictors <- c("log_Organic_C", "log_Total_N", "log_P_Olsen")
 #' b <- partition(S0,
 #'   part1 = response,
 #'   part2 = predictors

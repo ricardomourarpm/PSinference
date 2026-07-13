@@ -137,11 +137,8 @@ when it rejects. The final panel shows the chi-square Q-Q plot of squared
 Mahalanobis distances.
 }
 \examples{
-data(attitude)
-mvn_test(attitude)
-
-data(mtcars)
-mvn_test(mtcars)
+data(brittany_soil_ps)
+mvn_test(brittany_soil_ps)
 }
 \references{
 Mardia, K. V. (1970). Measures of multivariate skewness and kurtosis
@@ -156,6 +153,5 @@ non-normality. \emph{Statistics and Computing}, \strong{2}, 117--119.
 }
 \seealso{
 \code{\link{simSynthData}},
-\code{\link{ps_attitude}},
-\code{\link{ps_mtcars}}
+\code{\link{brittany_soil_ps}},
 }
